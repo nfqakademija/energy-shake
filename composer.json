@@ -23,7 +23,13 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "twig/twig": "~2.0",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "incenteev/composer-parameter-handler": "^2.0",
+        "knpuniversity/oauth2-client-bundle": "^1.12",
+        "league/oauth2-facebook": "^2.0",
+        "league/oauth2-client": "^2.2",
+        "hwi/oauth-bundle": "^0.5.3",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/httplug-bundle": "^1.7"
     },
     "require-dev": {
         "fzaninotto/faker": "*",

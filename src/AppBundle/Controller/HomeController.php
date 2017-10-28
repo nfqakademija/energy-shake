@@ -14,10 +14,11 @@ class HomeController extends Controller
 {
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="app.home")
      */
     public function indexAction()
     {
         return $this->render('AppBundle:Home:index.html.twig', []);
+
     }
 }

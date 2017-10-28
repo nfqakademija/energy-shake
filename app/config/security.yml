@@ -6,6 +6,8 @@ security:
     providers:
         in_memory:
             memory: ~
+        energy_shake_users:
+            entity: { class: AppBundle\Entity\User, property: email }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +17,11 @@ security:
 
         main:
             anonymous: ~
-            # activate different ways to authenticate
+            guard:
+                authenticators:
+                    - 'facebook_auth'
+            logout:
+                path: /logout
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
 
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+

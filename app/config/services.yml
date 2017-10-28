@@ -16,7 +16,8 @@ parameters:
         - {title: "Start with Demo app", org: ongr-io, repo: demo.ongr.io, path: README.md}
         - {title: "Contributing to ONGR", org: ongr-io, repo: global-docs, path: Contributing.md}
 
+
 services:
-#    app.example:
-#        class: AppBundle\Service\ExampleService
-#        arguments: ["@doctrine.orm.entity_manager"]
+    facebook_auth:
+        class: AppBundle\Security\FacebookAuth
+        autowire: true
