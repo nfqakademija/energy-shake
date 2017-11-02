@@ -29,7 +29,8 @@
         "league/oauth2-client": "^2.2",
         "hwi/oauth-bundle": "^0.5.3",
         "php-http/guzzle6-adapter": "^1.1",
-        "php-http/httplug-bundle": "^1.7"
+        "php-http/httplug-bundle": "^1.7",
+        "doctrine/doctrine-migrations-bundle": "~1.2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "*",

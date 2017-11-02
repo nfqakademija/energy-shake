@@ -1,2 +1,15 @@
 //bootstrap
 @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.main-menu{
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.main-menu a{
+  display: inline-block;
+  color: #1b1b1b;
+  font-weight: 700;
+  padding: 0 10px;
+}

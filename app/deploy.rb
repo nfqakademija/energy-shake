@@ -1,7 +1,7 @@
-set :application, 'kickstart'
+set :application, 'energyshake'
 set :repo_url, '#'
 
-set :deploy_to, '/home/kickstart/'
+set :deploy_to, '/home/energyshake/'
 
 set :archive_cache, true
 set :branch, 'master'

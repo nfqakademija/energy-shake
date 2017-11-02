@@ -1,0 +1,12 @@
+<div class="main-menu">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <p>Logged as: {{ app.user.username }} </p>
+        <a href="{{ path('app.product') }}">Products</a>
+        <a href="">Profile</a>
+        <a href="">Cart</a>
+        <a href="{{ logout_path() }}">Logout</a>
+    {% else %}
+            <a href="{{ path('app.product') }}">Products</a>
+            <a href="{{ path('app_facebook_connect') }}"> Login/Register </a>
+    {% endif %}
+</div>

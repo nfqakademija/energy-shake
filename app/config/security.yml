@@ -1,11 +1,14 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        db_provider:
+            entity: { class: AppBundle\Entity\User }
         energy_shake_users:
             entity: { class: AppBundle\Entity\User, property: email }
 
@@ -22,6 +25,19 @@ security:
                     - 'facebook_auth'
             logout:
                 path: /logout
+                target: /
+
+            form_login:
+                login_path: login
+                check_path: login
+
+    #sudelioti kas kam prieinama, eiliskumas is apacios (neprisijungusiam auksciau) ROLE_USER
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/connect/check, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/edit, roles: IS_AUTHENTICATED_FULLY }
 
 
 

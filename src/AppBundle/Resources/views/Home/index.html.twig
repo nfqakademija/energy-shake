@@ -20,24 +20,9 @@
             font-weight: 700;
         }
 
-        .link{
-            text-align: center;
-            font-size: 20pt;
-            display: block;
-            font-weight: 700;
-        }
-
     </style>
 {% endblock %}
 
 {% block body %}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <p class="link">Logged as: {{ app.user.username }} </p>
-        <a href="{{ logout_path() }}" class="link"> Logout</a>
-    {% else %}
-        <a href="{{ path('app_facebook_connect') }}" class="link"> Login/Register </a>
-    {% endif %}
-
     <div class="title">Energy Shake</div>
-    <div><a href="{{ path('app.product') }}" class="link">Product</a></div>
 {% endblock %}

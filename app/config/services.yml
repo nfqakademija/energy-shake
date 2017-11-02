@@ -21,3 +21,14 @@ services:
     facebook_auth:
         class: AppBundle\Security\FacebookAuth
         autowire: true
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+        exclude: '../../src/AppBundle/{Controller,Entity,Repository,Tests}'
+
+    #AppBundle\Security\FacebookAuth: taip turetu buti jeigu virsui nordyta autowire

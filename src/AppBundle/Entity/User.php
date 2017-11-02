@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -10,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @UniqueEntity(fields={"email", "username"}, message="This one is already taken")
  */
 class User implements UserInterface
 {
@@ -32,7 +35,7 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50)
+     * @ORM\Column(name="name", type="string", length=50, nullable=true)
      */
     private $name;
 
@@ -47,6 +50,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -56,6 +60,27 @@ class User implements UserInterface
      * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
      */
     private $facebookId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string")
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string")
+     */
+    private $role;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="regDate", type="datetime")
+     */
+    private $regDate;
 
 
     /**
@@ -183,16 +208,67 @@ class User implements UserInterface
         return $this->facebookId;
     }
 
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRegDate()
+    {
+        return $this->regDate;
+    }
+
+    /**
+     * @param \DateTime $regDate
+     */
+    public function setRegDate($regDate)
+    {
+        $this->regDate = $regDate;
+    }
+
+
     public function getRoles()
     {
         $roles[] = 'ROLE_USER';
         return $roles;
     }
 
-    public function getPassword()
-    {
-        // TODO: Implement getPassword() method.
-    }
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
@@ -201,5 +277,7 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+
 }
 

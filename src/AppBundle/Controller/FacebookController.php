@@ -15,9 +15,8 @@ class FacebookController extends Controller
      */
     public function connectAction()
     {
-        // will redirect to Facebook!
         return $this->get('oauth2.registry')
-            ->getClient('facebook_main') // key used in config.yml
+            ->getClient('facebook_main')
             ->redirect();
     }
 

@@ -52,6 +52,7 @@ class FacebookAuth extends SocialAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        $randPass = "pass"; //TODO: sugeneruoti random string encodin'ta
         /** @var FacebookUser $facebookUser */
         $facebookUser = $this->getFacebookClient()
             ->fetchUserFromToken($credentials);
@@ -64,20 +65,22 @@ class FacebookAuth extends SocialAuthenticator
             return $existingUser;
         }
 
-        $user = $this->em->getRepository('AppBundle:User')
+        $userFb = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['email' => $userData['email']]);
 
-        $user = new User();
+        $userFb = new User();
 
-        $user->setUsername($userData['name']);
-        $user->setName($userData['first_name']);
-        $user->setSurname($userData['last_name']);
-        $user->setEmail($userData['email']);
-        $user->setFacebookId($facebookUser->getId());
-        $this->em->persist($user);
+        $userFb->setUsername($userData['name']);
+        $userFb->setName($userData['first_name']);
+        $userFb->setSurname($userData['last_name']);
+        $userFb->setEmail($userData['email']);
+        $userFb->setFacebookId($facebookUser->getId());
+        $userFb->setPassword($randPass);
+        $userFb->setRole("user");
+        $userFb->setRegDate(new \DateTime("now"));
+        $this->em->persist($userFb);
         $this->em->flush();
-
-        return $user;
+        return $userFb;
     }
 
 
