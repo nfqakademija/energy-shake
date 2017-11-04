@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb40963-7f55-4ec5-ba99-c5cca5c2d6c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/console" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +64,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="36">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -450,7 +451,7 @@
       <workItem from="1509636737483" duration="7514000" />
       <workItem from="1509738701683" duration="1995000" />
       <workItem from="1509783684865" duration="12088000" />
-      <workItem from="1509813515577" duration="3415000" />
+      <workItem from="1509813515577" duration="3745000" />
     </task>
     <task id="LOCAL-00001" summary="Facebook Login added">
       <created>1509211859240</created>
@@ -522,11 +523,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509819216467</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Bin added">
+      <created>1509819333077</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1509819333077</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122286000" />
+    <option name="totallyTimeSpent" value="122616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,7 +603,8 @@
     <MESSAGE value="Style and deployment fixes" />
     <MESSAGE value="Girignore bin folder added" />
     <MESSAGE value="Migration fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migration fixed" />
+    <MESSAGE value="Bin added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bin added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -987,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="36">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
       </provider>
