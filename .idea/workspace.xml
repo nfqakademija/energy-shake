@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb40963-7f55-4ec5-ba99-c5cca5c2d6c6" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171031190259.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171031192539.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171101164847.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171101170442.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171101170635.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/d9eda583-216a-4077-a21e-98a6274953e2.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/d9eda583-216a-4077-a21e-98a6274953e2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,17 +30,6 @@
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="@localhost" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="akademija" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="akademija" type="e3449647:DbNodeDescriptor" />
-        <item name="user" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -74,8 +69,43 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="288">
+              <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tmp.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/tmp.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Version20171104181033.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations/Version20171104181033.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1509819033197" expanded="true" signature="585:820" ph="CREATE TABLE... products" />
+                <marker date="1509819033197" expanded="true" signature="847:1277" ph="CREATE TABLE... user" />
+                <marker date="1509819033197" expanded="true" signature="1631:1650" ph="DROP TABLE p... " />
+                <marker date="1509819033197" expanded="true" signature="1677:1692" ph="DROP TABLE u... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -164,8 +194,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig" />
         <option value="$PROJECT_DIR$/web/js/tmp.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" />
-        <option value="$PROJECT_DIR$/web/css/tmp.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/web/css/tmp.css" />
       </list>
     </option>
   </component>
@@ -453,7 +483,7 @@
       <workItem from="1509636737483" duration="7514000" />
       <workItem from="1509738701683" duration="1995000" />
       <workItem from="1509783684865" duration="12088000" />
-      <workItem from="1509813515577" duration="1591000" />
+      <workItem from="1509813515577" duration="3196000" />
     </task>
     <task id="LOCAL-00001" summary="Facebook Login added">
       <created>1509211859240</created>
@@ -504,11 +534,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509814012243</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Girignore bin folder added">
+      <created>1509816874026</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1509816874026</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120462000" />
+    <option name="totallyTimeSpent" value="122067000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -526,9 +563,9 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27187765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19286321" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19286321" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32814237" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32814237" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -575,23 +612,14 @@
     <MESSAGE value="Readme edited" />
     <MESSAGE value="Login/Register with form" />
     <MESSAGE value="Style and deployment fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style and deployment fixes" />
+    <MESSAGE value="Girignore bin folder added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Girignore bin folder added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/inc/header.html" />
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -842,22 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
@@ -879,13 +891,6 @@
         <state relative-caret-position="18">
           <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4806">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -917,10 +922,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <marker date="1509476579357" expanded="true" signature="585:703" ph="ALTER TABLE user... " />
-            <marker date="1509476579357" expanded="true" signature="1057:1112" ph="ALTER TABLE user... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -948,14 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/tmp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/inc/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -964,10 +958,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/tmp.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations/Version20171104181033.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509819033197" expanded="true" signature="585:820" ph="CREATE TABLE... products" />
+            <marker date="1509819033197" expanded="true" signature="847:1277" ph="CREATE TABLE... user" />
+            <marker date="1509819033197" expanded="true" signature="1631:1650" ph="DROP TABLE p... " />
+            <marker date="1509819033197" expanded="true" signature="1677:1692" ph="DROP TABLE u... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="288">
+          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding />
         </state>
       </provider>
