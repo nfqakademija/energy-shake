@@ -19,5 +19,5 @@ parameters:
     secret:            SuperSecretAcademyHashKeyDoNotTellAnyone
 
     mail_from: noreply@example.com
-    client_secret: 1b4a943ac991d5fc7c90a589504ecb89
-    client_id: 791574527691251
+    client_secret: f65c6c85408e2b94d55ba223318e39fa
+    client_id: 885206178300965
