@@ -3,26 +3,18 @@
 {% block title %}Home - {{ parent() }}{% endblock %}
 
 {% block stylesheets %}
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
     {{ parent() }}
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .title {
-            margin: 20px auto;
-            text-align: center;
-            font-size: 70px;
-            font-weight: 700;
-        }
-
-    </style>
 {% endblock %}
 
 {% block body %}
-    <div class="title">Energy Shake</div>
+    <section>
+        <span>Image</span>
+    </section>
+    <section>
+        <span>About</span>
+    </section>
+    <section>
+        <span>Info</span>
+    </section>
 {% endblock %}

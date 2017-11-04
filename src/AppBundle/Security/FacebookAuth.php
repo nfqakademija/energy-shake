@@ -65,22 +65,22 @@ class FacebookAuth extends SocialAuthenticator
             return $existingUser;
         }
 
-        $userFb = $this->em->getRepository('AppBundle:User')
+        $user = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['email' => $userData['email']]);
 
-        $userFb = new User();
+        $user = new User();
 
-        $userFb->setUsername($userData['name']);
-        $userFb->setName($userData['first_name']);
-        $userFb->setSurname($userData['last_name']);
-        $userFb->setEmail($userData['email']);
-        $userFb->setFacebookId($facebookUser->getId());
-        $userFb->setPassword($randPass);
-        $userFb->setRole("user");
-        $userFb->setRegDate(new \DateTime("now"));
-        $this->em->persist($userFb);
+        $user->setUsername($userData['name']);
+        $user->setName($userData['first_name']);
+        $user->setSurname($userData['last_name']);
+        $user->setEmail($userData['email']);
+        $user->setFacebookId($facebookUser->getId());
+        $user->setPassword($randPass);
+        $user->setRole("user");
+        $user->setRegDate(new \DateTime("now"));
+        $this->em->persist($user);
         $this->em->flush();
-        return $userFb;
+        return $user;
     }
 
 

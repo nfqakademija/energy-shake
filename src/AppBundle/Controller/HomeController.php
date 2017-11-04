@@ -18,7 +18,8 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        //$foo = $this->get('AppBundle/Service/Foo');
+        // $foo = $this->get('AppBundle/Service/Foo');
+        // $trans = $this->get('translator');
         return $this->render('AppBundle:Home:index.html.twig', []);
 
     }

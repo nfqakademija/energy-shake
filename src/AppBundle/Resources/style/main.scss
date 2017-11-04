@@ -1,15 +1,97 @@
 //bootstrap
 @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-.main-menu{
-  display: block;
+/*    MAIN    */
+
+html, body{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  flex: 1 0 auto;
   width: 100%;
-  text-align: right;
+  padding: 0;
+}
+
+/*    CONTENT    */
+
+section {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background: lightgreen;
+  border-top: 1px solid rgba(255,255,255,.3);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+section:nth-of-type(even) {
+  background: seagreen;
+}
+span {
+  margin: auto;
+  font-size: 20vw;
+}
+
+/*    MENU   */
+
+.main-menu{
+  position: relative;
+  z-index: 1;
 }
 
 .main-menu a{
-  display: inline-block;
-  color: #1b1b1b;
+  color: #2d2d2d;
   font-weight: 700;
-  padding: 0 10px;
+}
+
+.center-menu, .user-menu{
+  position: fixed;
+}
+
+.center-menu{
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.user-menu{
+  right: 5%;
+  top: 0;
+}
+
+.center-menu a, .user-menu a{
+  display: inline-block;
+}
+
+.center-menu a{
+  margin: 1em 0.6em;
+}
+
+.user-menu a{
+  margin: 1em 0.3em;
+}
+
+/*    FOOTER    */
+
+.footer-main{
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #939393;
+  padding: 10px 0;
+}
+
+.footer-main p{
+  margin: 0.2em 0;
 }

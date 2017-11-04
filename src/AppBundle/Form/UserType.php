@@ -14,11 +14,21 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\User;
 
 class UserType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options){
+
+        /*$listener = function (FormEvent $event){
+          $data = $event->getData();
+          $data->setRegDate(new \DateTime());
+          $event->setData($data); //negera praktika
+        };*/
+
+
         $builder
             ->add('username', TextType::class, array('label' => 'Username'))
             ->add('email', EmailType::class)
@@ -33,10 +43,13 @@ class UserType extends AbstractType {
                 ],
                 'label' => 'Register'
             ]);
+           // ->addEventListener(FormEvents::POST_SET_DATA, $listener);
     }
     public function configureOptions(OptionsResolver $resolver){
         $resolver->setDefaults([
             'data_class' => User::class
         ]);
+
+        //$resolver->setRequired('translator');
     }
 }
