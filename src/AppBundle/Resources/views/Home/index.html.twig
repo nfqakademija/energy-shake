@@ -8,13 +8,15 @@
 {% endblock %}
 
 {% block body %}
-    <section>
-        <span>Image</span>
+    <section class="front-block section-front">
+        <span class="front-title left">Energy</span>
+        <img src="{{ asset("images/orange.png") }}" class="shake image">
+        <span class="front-title right">Shake</span>
     </section>
-    <section>
-        <span>About</span>
+    <section class="front-block section-front-about">
+        <span class="front-title">About</span>
     </section>
-    <section>
-        <span>Info</span>
+    <section class="front-block section-front-info">
+        <span class="front-title">Info</span>
     </section>
 {% endblock %}

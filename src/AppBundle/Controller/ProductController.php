@@ -8,20 +8,20 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ProductController
- * @Route("product")
+ * @Route("product", name="app.product")
  */
 class ProductController extends Controller
 {
     /**
      * @Route("/", name="app.product")
      */
-    public function indexAction(Request $reguest)
+    public function productAction(Request $reguest)
     {
        // $em = $this->getDoctrine()->getManager();
        // $productRepo = $em->getRepository(Product::class);
        // $product = $productRepo->find($id);
 
-        return $this->render('AppBundle:Product:index.html.twig', array(
+        return $this->render('AppBundle:Product:product.html.twig', array(
             // ...
         ));
     }

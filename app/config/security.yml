@@ -37,6 +37,8 @@ security:
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/connect/check, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/cart, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/profile, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/edit, roles: IS_AUTHENTICATED_FULLY }
 
 

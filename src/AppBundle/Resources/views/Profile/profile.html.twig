@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Profile - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="front-block section-profile">
+        <span class="front-title">{{ app.user.username }} profile</span>
+    </section>
+{% endblock %}

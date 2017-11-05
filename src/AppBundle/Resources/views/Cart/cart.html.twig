@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Cart - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="front-block section-cart">
+        <span class="front-title">{{ app.user.username }} cart</span>
+    </section>
+{% endblock %}
