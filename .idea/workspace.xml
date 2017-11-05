@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb40963-7f55-4ec5-ba99-c5cca5c2d6c6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171105104703.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171104181033.php" afterPath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171105211712.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/d9eda583-216a-4077-a21e-98a6274953e2.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/d9eda583-216a-4077-a21e-98a6274953e2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +41,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="396">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="149" column="18" lean-forward="false" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -124,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Product/product.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/About/about.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/cart.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/web/css/tmp.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/inc/header.html.twig" />
@@ -135,6 +143,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Security/FacebookAuth.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/PostFacebookLoginListener.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" />
       </list>
     </option>
   </component>
@@ -290,6 +299,14 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="style" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="nfqstart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nfqstart" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -385,7 +402,7 @@
       <workItem from="1509783684865" duration="12088000" />
       <workItem from="1509813515577" duration="7940000" />
       <workItem from="1509828888037" duration="2608000" />
-      <workItem from="1509871112777" duration="22456000" />
+      <workItem from="1509871112777" duration="24934000" />
     </task>
     <task id="LOCAL-00001" summary="Facebook Login added">
       <created>1509211859240</created>
@@ -492,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509916026494</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Migrations fix">
+      <created>1509916770091</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1509916770091</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151875000" />
+    <option name="totallyTimeSpent" value="154353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,7 +594,8 @@
     <MESSAGE value="Facebook parameters added" />
     <MESSAGE value="Style base added" />
     <MESSAGE value="Style and Facebook image added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style and Facebook image added" />
+    <MESSAGE value="Migrations fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrations fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -579,13 +604,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Login/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -798,14 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -860,14 +870,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/tmp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="132" column="17" lean-forward="false" selection-start-line="132" selection-start-column="17" selection-end-line="132" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +930,7 @@
         <state relative-caret-position="936">
           <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
           <folding>
-            <element signature="e#121#147#0#PHP" expanded="true" />
+            <element signature="e#121#147#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,7 +948,7 @@
         <state relative-caret-position="306">
           <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding>
-            <element signature="e#115#155#0#PHP" expanded="true" />
+            <element signature="e#115#155#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -959,10 +961,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/f0ff111e/d9eda583-216a-4077-a21e-98a6274953e2/akademija.migration_versions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="396">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/tmp.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="123" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="149" column="18" lean-forward="false" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
           <folding />
         </state>
       </provider>
