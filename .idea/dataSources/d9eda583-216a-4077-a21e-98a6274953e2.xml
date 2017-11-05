@@ -90,16 +90,20 @@
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="25" parent="8" name="UNIQ_8D93D649E7927C74">
+    <column id="25" parent="8" name="image">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="26" parent="8" name="UNIQ_8D93D649E7927C74">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="26" parent="8" name="PRIMARY">
+    <key id="27" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="27" parent="8" name="UNIQ_8D93D649E7927C74">
+    <key id="28" parent="8" name="UNIQ_8D93D649E7927C74">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UNIQ_8D93D649E7927C74</UnderlyingIndexName>
     </key>

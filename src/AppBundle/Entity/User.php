@@ -71,6 +71,13 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="image", type="string", nullable=true)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="role", type="string")
      */
     private $role;
@@ -233,6 +240,22 @@ class User implements UserInterface
     /**
      * @return string
      */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
     public function getRole()
     {
         return $this->role;
@@ -277,6 +300,8 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+
 
 
 }

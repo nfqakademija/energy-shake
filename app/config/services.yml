@@ -31,4 +31,9 @@ services:
         resource: '../../src/AppBundle/*'
         exclude: '../../src/AppBundle/{Controller,Entity,Repository,Tests}'
 
+    login_listener:
+            class:  AppBundle\EventListener\PostFacebookLoginListener
+            tags:
+                - { name: kernel.event_listener, event: security.interactive_login, method: onSecurityInteractiveLogin }
+
     #AppBundle\Security\FacebookAuth: taip turetu buti jeigu virsui nordyta autowire

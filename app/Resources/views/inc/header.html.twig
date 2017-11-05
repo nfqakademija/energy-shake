@@ -7,6 +7,9 @@
         </div>
         <div class="user-menu">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {% if app.user.image %}
+                    <img src="{{ app.user.image }}" class="profile-image">
+                {% endif %}
                 <a href="{{ path('app.profile') }}">{{ app.user.username }}</a>
                 <a href="{{ path('app.cart') }}">Cart</a>
                 <a href="{{ logout_path() }}">Logout</a>

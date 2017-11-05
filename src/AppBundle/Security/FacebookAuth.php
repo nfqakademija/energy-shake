@@ -57,6 +57,8 @@ class FacebookAuth extends SocialAuthenticator
         $facebookUser = $this->getFacebookClient()
             ->fetchUserFromToken($credentials);
 
+        //dump($credentials); die;
+
         $userData = $facebookUser->toArray();
 
         $existingUser = $this->em->getRepository('AppBundle:User')
@@ -78,6 +80,7 @@ class FacebookAuth extends SocialAuthenticator
         $user->setPassword($randPass);
         $user->setRole("user");
         $user->setRegDate(new \DateTime("now"));
+        $user->setImage($userData['picture_url']);
         $this->em->persist($user);
         $this->em->flush();
         return $user;
