@@ -12,6 +12,7 @@ use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use KnpU\OAuth2ClientBundle\Security\Authenticator\SocialAuthenticator;
+use KnpU\OAuth2ClientBundle\Client\Provider\FacebookClient;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -53,18 +54,21 @@ class FacebookAuth extends SocialAuthenticator
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $randPass = "pass"; //TODO: sugeneruoti random string encodin'ta
+
         /** @var FacebookUser $facebookUser */
-        $facebookUser = $this->getFacebookClient()
-            ->fetchUserFromToken($credentials);
 
-        //dump($credentials); die;
-
+        $client = $this->getFacebookClient();
+        $facebookUser = $client->fetchUserFromToken($credentials);
         $userData = $facebookUser->toArray();
+        $provider = $client->getOAuth2Provider();
+        $fbToken = $provider->getLongLivedAccessToken($credentials);
 
-        $existingUser = $this->em->getRepository('AppBundle:User')
+        // dump($fbToken);die;
+
+        $userExist = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['facebookId' => $facebookUser->getId()]);
-        if ($existingUser) {
-            return $existingUser;
+        if ($userExist) {
+            return $userExist;
         }
 
         $user = $this->em->getRepository('AppBundle:User')
@@ -79,8 +83,9 @@ class FacebookAuth extends SocialAuthenticator
         $user->setFacebookId($facebookUser->getId());
         $user->setPassword($randPass);
         $user->setRole("user");
-        $user->setRegDate(new \DateTime("now"));
-        $user->setImage($userData['picture_url']);
+        $user->setRegDate(new \DateTime("now")); //TODO: fix with Gedmo
+        $user->setFbToken($fbToken);
+        //$user->setImage($userData['picture_url']); // commented for EventListener homework
         $this->em->persist($user);
         $this->em->flush();
         return $user;

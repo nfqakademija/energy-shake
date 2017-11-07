@@ -76,6 +76,11 @@ class User implements UserInterface
     private $image;
 
     /**
+     * @ORM\Column(name="fbToken", type="string", nullable=true)
+     */
+    private $fbToken;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="role", type="string")
@@ -254,6 +259,22 @@ class User implements UserInterface
     }
 
     /**
+     * @return mixed
+     */
+    public function getFbToken()
+    {
+        return $this->fbToken;
+    }
+
+    /**
+     * @param mixed $fbToken
+     */
+    public function setFbToken($fbToken)
+    {
+        $this->fbToken = $fbToken;
+    }
+
+    /**
      * @return string
      */
     public function getRole()
@@ -300,7 +321,6 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
-
 
 
 
