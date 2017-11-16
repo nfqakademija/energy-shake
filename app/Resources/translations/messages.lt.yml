@@ -1,0 +1,29 @@
+menu:
+    about: Apie
+    product: Produktas
+    home: Pagrindinis
+    cart: Krepšelis
+    logout: Atsijungti
+    login: Prisijungti
+
+action:
+    search: Ieškoti
+    new: Naujas
+
+action:
+    edit: Redaguoti
+    delete: Trinti
+
+list:
+    page_title: Vartotojai
+
+messages:
+    product: Produktas
+
+user:
+    logged_in_as: Prisijungęs kaip
+
+Product: Produktas
+Price: Kaina
+Title: Pavadinimas
+list.row_actions: Veiksmai

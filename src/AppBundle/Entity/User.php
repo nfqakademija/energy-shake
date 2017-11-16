@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * User
@@ -90,6 +91,7 @@ class User implements UserInterface
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="regDate", type="datetime")
      */
     private $regDate;
@@ -310,6 +312,7 @@ class User implements UserInterface
     public function getRoles()
     {
         $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_ADMIN';
         return $roles;
     }
 

@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
+ * Part
  *
- * @ORM\Table(name="products")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\Table(name="part")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PartRepository")
  */
-class Product
+class Part
 {
     /**
      * @var int
@@ -31,16 +31,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="price", type="float")
-     */
-    private $price;
 
 
     /**
@@ -58,7 +51,7 @@ class Product
      *
      * @param string $title
      *
-     * @return Product
+     * @return Part
      */
     public function setTitle($title)
     {
@@ -82,7 +75,7 @@ class Product
      *
      * @param string $description
      *
-     * @return Product
+     * @return Part
      */
     public function setDescription($description)
     {
@@ -99,30 +92,6 @@ class Product
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set price
-     *
-     * @param float $price
-     *
-     * @return Product
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return float
-     */
-    public function getPrice()
-    {
-        return $this->price;
     }
 }
 

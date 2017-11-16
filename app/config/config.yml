@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: lt
+    app.locales: lt|en
 
 framework:
     #esi:             ~
@@ -49,12 +50,6 @@ doctrine:
         charset:  UTF8
         mapping_types:
             enum: string
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -88,3 +83,23 @@ doctrine_migrations:
     name: Application Migrations
     organize_migrations: false
 
+# Doctrine extensions
+stof_doctrine_extensions:
+    default_locale: lt
+    orm:
+        default:
+            timestampable: true
+
+# EasyAdmin
+easy_admin:
+    site_name: 'EnergyShake'
+    entities:
+        - AppBundle\Entity\Product
+        - AppBundle\Entity\User
+    design:
+        menu:
+            - { entity: 'Product', icon: 'th-large' }
+            - { entity: 'User', icon: 'users' }
+        brand_color: '#000'
+        assets:
+            favicon: '/assets/images/favicon.png'

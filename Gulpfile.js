@@ -3,7 +3,7 @@
 var gulp    = require('gulp');
 var sass    = require('gulp-sass');
 var concat  = require('gulp-concat');
-var uglify  = require('gulp-uglify');
+var uglify  = require('gulp-uglify'); //babel
 
 var dir = {
     assets: './src/AppBundle/Resources/',
@@ -47,3 +47,5 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('default', ['sass', 'scripts', 'fonts', 'images']);
+
+//sass watch isideti sass:watch

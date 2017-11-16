@@ -83,7 +83,6 @@ class FacebookAuth extends SocialAuthenticator
         $user->setFacebookId($facebookUser->getId());
         $user->setPassword($randPass);
         $user->setRole("user");
-        $user->setRegDate(new \DateTime("now")); //TODO: fix with Gedmo
         $user->setFbToken($fbToken);
         //$user->setImage($userData['picture_url']); // commented for EventListener homework
         $this->em->persist($user);
