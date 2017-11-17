@@ -6,24 +6,27 @@ menu:
     logout: Atsijungti
     login: Prisijungti
 
+admin:
+    products: Produktai
+    users: Vartotojai
+    parts: Sudedamosios dalys
+
 action:
     search: Ieškoti
     new: Naujas
-
-action:
     edit: Redaguoti
     delete: Trinti
+    save: Saugoti
+    list: Sąrašas
+    add_another_item: asda
 
 list:
     page_title: Vartotojai
+    row_actions: Veiksmai
 
-messages:
-    product: Produktas
+EasyAdminBundle:
+    action:
+        add_another_item: asda
 
-user:
-    logged_in_as: Prisijungęs kaip
 
-Product: Produktas
-Price: Kaina
-Title: Pavadinimas
-list.row_actions: Veiksmai
+

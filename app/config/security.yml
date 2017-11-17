@@ -12,6 +12,10 @@ security:
         energy_shake_users:
             entity: { class: AppBundle\Entity\User, property: email }
 
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN]
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -33,13 +37,9 @@ security:
 
     #sudelioti kas kam prieinama, eiliskumas is apacios (neprisijungusiam auksciau) ROLE_USER
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        - { path: ^/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        - { path: ^/connect/check, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        - { path: ^/cart, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/profile, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/edit, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/cart, roles: ROLE_USER }
+        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
 
 
 

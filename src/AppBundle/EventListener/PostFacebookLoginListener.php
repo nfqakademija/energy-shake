@@ -25,7 +25,8 @@ class PostFacebookLoginListener
     }
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
     {
-        $token = $event->getAuthenticationToken()->getUser()->getFbToken();
+       /* $token = $event->getAuthenticationToken()->getUser()->getFbToken();
+        //var_dump($token); die;
         $client = $this->clientRegistry->getClient('facebook_main');
         $provider = $client->getOAuth2Provider();
         $fbToken = $provider->getLongLivedAccessToken($token);
@@ -36,6 +37,7 @@ class PostFacebookLoginListener
         if(!$user->getImage() ){
             $user->setImage($facebookUser->getPictureUrl());
             $this->em->flush();
-        }
+        }*/
+       //TODO: delete Facebook Event Listener
     }
 }

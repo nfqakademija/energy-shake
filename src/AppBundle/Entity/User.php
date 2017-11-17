@@ -82,11 +82,9 @@ class User implements UserInterface
     private $fbToken;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string")
+     * @ORM\Column(type="json_array")
      */
-    private $role;
+    private $roles;
 
     /**
      * @var \DateTime
@@ -95,7 +93,6 @@ class User implements UserInterface
      * @ORM\Column(name="regDate", type="datetime")
      */
     private $regDate;
-
 
     /**
      * Get id
@@ -178,7 +175,6 @@ class User implements UserInterface
     {
         return $this->surname;
     }
-
 
     /**
      * @param mixed $email
@@ -277,22 +273,6 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
-     * @param string $role
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getRegDate()
@@ -308,12 +288,24 @@ class User implements UserInterface
         $this->regDate = $regDate;
     }
 
-
+    /**
+     * @return array
+     */
     public function getRoles()
     {
-        $roles[] = 'ROLE_USER';
-        $roles[] = 'ROLE_ADMIN';
-        return $roles;
+        $roles = $this->roles;
+        if (empty($roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+        return array_unique($roles);
+    }
+
+    /**
+     * @param $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     public function getSalt()
@@ -324,8 +316,5 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
-
-
-
 }
 

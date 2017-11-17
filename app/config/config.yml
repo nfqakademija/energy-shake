@@ -11,7 +11,7 @@ parameters:
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["en"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -93,13 +93,30 @@ stof_doctrine_extensions:
 # EasyAdmin
 easy_admin:
     site_name: 'EnergyShake'
+    list_actions: ['edit', 'delete']
+    list:
+        title: '%%entity_label%%'
+    edit:
+        title: '%%entity_label%%'
     entities:
-        - AppBundle\Entity\Product
-        - AppBundle\Entity\User
+        Product:
+            class: AppBundle\Entity\Product
+            label: 'admin.products'
+        User:
+            class: AppBundle\Entity\User
+            label: 'admin.users'
+            list:
+                fields: ['id', 'username', 'email']
+            edit:
+                fields: ['username', 'name', 'surname', 'email', 'roles']
+        Part:
+            class: AppBundle\Entity\Part
+            label: 'admin.parts'
     design:
         menu:
-            - { entity: 'Product', icon: 'th-large' }
             - { entity: 'User', icon: 'users' }
+            - { entity: 'Product', icon: 'cube' }
+            - { entity: 'Part', icon: 'cubes' }
         brand_color: '#000'
         assets:
             favicon: '/assets/images/favicon.png'

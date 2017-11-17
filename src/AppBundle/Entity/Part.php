@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToMany;
 
 /**
  * Part
@@ -12,6 +13,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Part
 {
+    /**
+     * Many Parts have Many Products.
+     * @ManyToMany(targetEntity="Product", mappedBy="parts")
+     */
+    private $products;
+
+    public function __construct() {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     /**
      * @var int
      *
@@ -92,6 +108,22 @@ class Part
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param mixed $products
+     */
+    public function setProducts($products)
+    {
+        $this->products = $products;
     }
 }
 

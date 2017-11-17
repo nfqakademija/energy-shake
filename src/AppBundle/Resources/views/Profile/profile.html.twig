@@ -7,5 +7,10 @@
         <span class="front-title">
             {{ app.user.username }} profile
         </span>
+        <div style="color: red">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
     </section>
 {% endblock %}

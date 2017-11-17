@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\ManyToMany;
 
 /**
  * Product
@@ -12,6 +14,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    /**
+     * Many Products have Many Parts.
+     * @ManyToMany(targetEntity="Part", inversedBy="products")
+     * @JoinTable(name="product_parts")
+     */
+    private $parts;
+
+    public function __construct() {
+        $this->parts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     /**
      * @var int
      *
@@ -123,6 +141,22 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParts()
+    {
+        return $this->parts;
+    }
+
+    /**
+     * @param mixed $parts
+     */
+    public function setParts($parts)
+    {
+        $this->parts = $parts;
     }
 }
 
