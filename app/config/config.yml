@@ -8,6 +8,8 @@ imports:
 parameters:
     locale: lt
     app.locales: lt|en
+    app.path.product_images: /uploads/images/products
+    app.path.part_images: /uploads/images/parts
 
 framework:
     #esi:             ~
@@ -55,6 +57,9 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        filters:
+            softdeleteable:
+                class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -89,6 +94,7 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+            softdeleteable: true
 
 # EasyAdmin
 easy_admin:
@@ -102,6 +108,12 @@ easy_admin:
         Product:
             class: AppBundle\Entity\Product
             label: 'admin.products'
+            list:
+                fields: ['id', 'title', 'price', { property: 'image', type: 'image', base_path: '%app.path.product_images%' }, 'parts']
+            show:
+                fields: ['id', 'title', 'price', { property: 'image', type: 'image', base_path: '%app.path.product_images%' }, 'parts']
+            form:
+                fields: ['title', 'description', 'price', { property: 'imageFile', type: 'file' }, 'parts']
         User:
             class: AppBundle\Entity\User
             label: 'admin.users'
@@ -112,6 +124,12 @@ easy_admin:
         Part:
             class: AppBundle\Entity\Part
             label: 'admin.parts'
+            list:
+                fields: ['id', 'title', 'description', { property: 'image', type: 'image', base_path: '%app.path.part_images%' }, 'products']
+            show:
+                fields: ['id', 'title', 'description', { property: 'image', type: 'image', base_path: '%app.path.part_images%' }, 'products']
+            form:
+                fields: ['title', 'description', { property: 'imageFile', type: 'file' }, 'products']
     design:
         menu:
             - { entity: 'User', icon: 'users' }
@@ -120,3 +138,14 @@ easy_admin:
         brand_color: '#000'
         assets:
             favicon: '/assets/images/favicon.png'
+
+# Vich Uploader
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_images:
+            uri_prefix:         '%app.path.product_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
+        part_images:
+            uri_prefix:         '%app.path.part_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/parts'

@@ -3,7 +3,18 @@
 {% block title %}Product - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <section class="front-block section-product">
-        <span class="front-title">All about products</span>
-    </section>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="products-list">
+                {{ dump(product) }}
+
+                {{ product.title }}
+                <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 200px" />
+                {% for part in product.parts %}
+                    {{ part.title }}
+                    <img src="{{ vich_uploader_asset(part, 'imageFile') }}" alt="{{ part.title }}" />
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

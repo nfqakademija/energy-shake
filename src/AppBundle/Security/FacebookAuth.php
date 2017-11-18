@@ -82,9 +82,9 @@ class FacebookAuth extends SocialAuthenticator
         $user->setEmail($userData['email']);
         $user->setFacebookId($facebookUser->getId());
         $user->setPassword($randPass);
-        $user->setRole("user");
+        $user->setRoles(array('ROLE_USER'));
         $user->setFbToken($fbToken);
-        //$user->setImage($userData['picture_url']); // commented for EventListener homework
+        $user->setImage($userData['picture_url']); // commented for EventListener homework
         $this->em->persist($user);
         $this->em->flush();
         return $user;
