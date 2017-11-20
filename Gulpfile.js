@@ -12,7 +12,10 @@ var dir = {
 };
 
 gulp.task('sass', function() {
-    gulp.src(dir.assets + 'style/main.scss')
+    gulp.src([
+        dir.assets + 'style/main.scss',
+        dir.assets + 'style/easyadmin-all.min.scss'
+    ])
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(concat('style.css'))
         .pipe(gulp.dest(dir.dist + 'css'));
@@ -23,7 +26,7 @@ gulp.task('scripts', function() {
             //Third party assets
             dir.npm + 'jquery/dist/jquery.min.js',
             dir.npm + 'bootstrap-sass/assets/javascripts/bootstrap.min.js',
-
+            dir.assets + 'scripts/easyadmin-all.min.js',
             // Main JS file
             dir.assets + 'scripts/main.js'
         ])
