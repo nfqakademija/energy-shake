@@ -12,10 +12,7 @@ var dir = {
 };
 
 gulp.task('sass', function() {
-    gulp.src([
-        dir.assets + 'style/main.scss',
-        dir.assets + 'style/easyadmin-all.min.scss'
-    ])
+    gulp.src(dir.assets + 'style/main.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(concat('style.css'))
         .pipe(gulp.dest(dir.dist + 'css'));
