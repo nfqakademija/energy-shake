@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ "Energy Shake" }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
@@ -13,14 +14,13 @@
     {% block canonical_meta %}{% endblock %}
 </head>
 <body>
-<div class="container">
-    {% block container %}
-        {% block header %}
-            {% include "::inc/header.html.twig" %}
-        {% endblock %}
-        {% block body %}{% endblock %}
+{% block container %}
+    {% block header %}
+        {% include "::inc/header.html.twig" %}
     {% endblock %}
-</div>
+    {% block body %}
+    {% endblock %}
+{% endblock %}
 {% block footer %}
 {% include "::inc/footer.html.twig" %}
 {% endblock %}

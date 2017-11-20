@@ -1,10 +1,12 @@
 menu:
     about: Apie
-    product: Produktas
+    products: Produktai
     home: Pagrindinis
     cart: Krepšelis
     logout: Atsijungti
     login: Prisijungti
+    contacts: Kontaktai
+    profile: Profilis
 
 admin:
     products: Produktai
@@ -24,9 +26,35 @@ list:
     page_title: Vartotojai
     row_actions: Veiksmai
 
-EasyAdminBundle:
-    action:
-        add_another_item: asda
+product:
+    parts: Produkto sudėtis
+
+user:
+    profile: Profilis
+    username: Slapyvardis
+    name: Vardas
+    surname: Pavardė
+    email: El. paštas
+
+home:
+    energyshake: Energyshake
+    feel_the_fresh: Pajauskite gaivą!
+    newest_products: Naujausi produktai
+    add_to_cart: Į krepšelį
+    how_many: Kiek?
+    price: Kaina
+    cancel: Atšaukti
+    contacts: Kontaktai
+    location: Kaunas, Lietuva
+    feedback: Parašykite mums!
+    delivery: Pristatymas į namus
+    consultation: Individualios konsultacijos
+    plan: Mitybos planas
+    form:
+        email: El. paštas
+        name: Vardas
+        comment: Žinutė
+        send: Siųsti
 
 
 

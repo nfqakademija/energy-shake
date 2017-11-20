@@ -4,8 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Product;
 
 /**
  * Class HomeController
@@ -21,11 +20,11 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        // $foo = $this->get('AppBundle/Service/Foo');
-        // $trans = $this->get('translator');
-        //$translated = $this->get('translator')->trans('testing');
-        //return new Response($translated);
-        return $this->render('AppBundle:Home:index.html.twig', []);
-
+        $em = $this->getDoctrine()->getManager();
+        $productRepo = $em->getRepository(Product::class);
+        $productList = $productRepo->getProductList();
+        return $this->render('AppBundle:Home:index.html.twig', [
+            'list' => $productList
+        ]);
     }
 }

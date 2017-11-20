@@ -1,4 +1,4 @@
-<header>
+{#<header>
     <div class="main-menu">
         <div class="center-menu">
             <a href="{{ path('app.home') }}">{{ 'menu.home'|trans }}</a>
@@ -19,4 +19,55 @@
 
         </div>
     </div>
-</header>
+</header>#}
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">ENERGYSHAKE</a>
+        </div>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav navbar-right text-uppercase">
+                {% if app.request.get('_route') == 'app.home' %}
+                    <li class="active"><a href="#home">{{ 'menu.home'|trans }}</a></li>
+                    <li><a href="#about">{{ 'menu.about'|trans }}</a></li>
+                    <li><a href="#products">{{ 'menu.products'|trans }}</a></li>
+                    <li><a href="#contacts">{{ 'menu.contacts'|trans }}</a></li>
+                {% else %}
+                    <li><a href="{{ path('app.home') }}">{{ 'menu.home'|trans }}</a></li>
+                {% endif %}
+                {% if is_granted("ROLE_USER") %}
+                    <li>
+
+                        <a href="{{ path('app.profile') }}"></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% if app.user.image %}
+                                <img src="{{ app.user.image }}" class="profile-image">
+                            {% endif %}
+                            {{ app.user.username }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('app.profile') }}">{{ 'menu.profile'|trans }}</a></li>
+                            <li><a href="{{ path('app.cart') }}">{{ 'menu.cart'|trans }}</a></li>
+                            <li><a href="{{ logout_path() }}">{{ 'menu.logout'|trans }}</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_facebook_connect') }}">
+                            {{ 'menu.login'|trans }}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

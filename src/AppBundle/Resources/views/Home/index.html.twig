@@ -3,20 +3,160 @@
 {% block title %}Home - {{ parent() }}{% endblock %}
 
 {% block stylesheets %}
-
     {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <section class="front-block section-front">
-        <span class="front-title left">Energy</span>
-        <img src="{{ asset("images/orange.png") }}" class="shake image">
-        <span class="front-title right">Shake</span>
-    </section>
-    <section class="front-block section-front-about">
-        <span class="front-title">Ingredients</span>
-    </section>
-    <section class="front-block section-front-info">
-        <span class="front-title">Energy value</span>
-    </section>
+
+    <div id="home" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+            <li data-target="#home" data-slide-to="0" class="active"></li>
+            <li data-target="#home" data-slide-to="1"></li>
+            <li data-target="#home" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background-image: url({{ asset("images/front-top-fruits.jpg") }})">
+                <img src="{{ asset("images/green.png") }}" class="shake">
+                <div class="carousel-caption">
+                    <h3>Morning Shake</h3>
+                    <p>Morning Shake Description</p>
+                </div>
+            </div>
+           <div class="item" style="background-image: url({{ asset("images/fruits.jpg") }})">
+               <img src="{{ asset("images/red.png") }}" class="shake">
+                <div class="carousel-caption">
+                    <h3>Lunch Shake</h3>
+                    <p>Lunch Shake Description</p>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset("images/front-vegetables.jpg") }})">
+                <img src="{{ asset("images/orange.png") }}" class="shake">
+                <div class="carousel-caption">
+                    <h3>Dinner Shake</h3>
+                    <p>sDinner Shake Description</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#home" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#home" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div id="about" class="container text-center">
+        <h3 class="text-uppercase">{{ 'home.energyshake'|trans }}</h3>
+        <p><em>{{ 'home.feel_the_fresh'|trans }}</em></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <p class="text-center"><strong>{{ 'home.delivery'|trans }}</strong></p><br>
+                <a href="#" data-toggle="collapse">
+                    <img src="{{ asset("images/delivery.jpg") }}" class="img-circle person" alt="Random Name" width="255" height="255">
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <p class="text-center"><strong>{{ 'home.consultation'|trans }}</strong></p><br>
+                <a href="#" data-toggle="collapse">
+                    <img src="{{ asset("images/consultation.jpg") }}" class="img-circle person" alt="Random Name" width="255" height="255">
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <p class="text-center"><strong>{{ 'home.plan'|trans }}</strong></p><br>
+                <a href="#" data-toggle="collapse">
+                    <img src="{{ asset("images/plan.jpg") }}" class="img-circle person" alt="Random Name" width="255" height="255">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="products" class="bg-1">
+        <div class="container">
+            <h3 class="text-center text-uppercase">{{ 'home.newest_products'|trans }}</h3>
+            <p class="text-center">Lorem ipsum something about products!</p>
+            <div class="row text-center">
+                {% for product in list|slice(0, 3) %}
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <a href="{{ path('app.product', {'id': product.id}) }}">
+                            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 200px" class="shake"/>
+                        </a>
+                        <p><strong>{{ product.title }}</strong></p>
+                        <p>{{ product.description }}</p>
+                        <button class="btn" data-toggle="modal" data-target="#product-{{ product.id }}"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                        <a href="{{ path('app.product', {'id': product.id}) }}" class="btn">
+                            <span class="glyphicon glyphicon-option-horizontal"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="product-{{ product.id }}" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4><span class="glyphicon glyphicon-apple"></span> {{ product.title }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="psw"></span>{{ 'home.price'|trans }}{{ product.price }}</label>
+                                        <input type="number" min="1" class="form-control" id="psw" placeholder="{{ 'home.how_many'|trans }}">
+                                    </div>
+                                    <button type="submit" class="btn btn-block">{{ 'home.add_to_cart'|trans }}
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-remove"></span> {{ 'home.cancel'|trans }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div id="contacts" class="container">
+        <h3 class="text-center">{{ 'home.contacts'|trans }}</h3>
+        <p class="text-center"><em>{{ 'home.feedback'|trans }}</em></p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{ 'home.contacts'|trans }}</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> {{ 'home.location'|trans }}</p>
+                <p><span class="glyphicon glyphicon-phone"></span><a href="tel:+3701234567"> +3706 12 34567</a></p>
+                <p><span class="glyphicon glyphicon-envelope"></span><a href="mailto:info@energyshake.lt"> info@energyshake.lt</a></p>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="{{ 'home.form.name'|trans }}" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="{{ 'home.form.email'|trans }}" type="email" required>
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" placeholder="{{ 'home.form.comment'|trans }}" rows="5"></textarea>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button class="btn pull-right" type="submit">{{ 'home.form.send'|trans }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

@@ -26,16 +26,14 @@ class ProfileType extends AbstractType
             'username',
             TextType::class,
             [
-                'label' => 'label.concierge.email',
-                'translation_domain' => 'user',
+                'label' => 'user.username',
                 'required' => false
             ]
         )->add(
             'name',
             TextType::class,
             [
-                'label' => 'label.concierge.company',
-                'translation_domain' => 'user',
+                'label' => 'user.name',
                 'required' => false
 
             ]
@@ -43,23 +41,20 @@ class ProfileType extends AbstractType
             'surname',
             TextType::class,
             [
-                'label' => 'label.concierge.first_name',
-                'translation_domain' => 'user',
+                'label' => 'user.surname',
                 'required' => false
             ]
         )->add(
             'email',
             EmailType::class,
             [
-                'label' => 'label.concierge.last_name',
-                'translation_domain' => 'user'
+                'label' => 'user.email',
             ]
         )->add(
             'save',
             SubmitType::class,
             [
-                'label' => 'button.save',
-                'translation_domain' => 'user',
+                'label' => 'action.save',
                 'attr' => ['class' => "btn-success btn pull-right"],
             ]
         );
