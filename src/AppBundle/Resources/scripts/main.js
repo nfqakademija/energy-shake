@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $(".navbar a, footer a[href='#home']").on('click', function(event) {
