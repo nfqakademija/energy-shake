@@ -1,0 +1,15 @@
+parameters:
+    images:
+        - 'apple.png'
+        - 'banana.png'
+        - 'tomato.png'
+        - 'pear.png'
+        - 'vitaminC.png'
+
+AppBundle\Entity\Part:
+    part{1..100}:
+        title: '<word()>'
+        description: '<sentences(3, true)>'
+        image: '<randomElement($images)>'
+        createdAt: '<dateTimeBetween("-2 year", "now")>'
+        updatedAt: '<dateTimeBetween("-2 year", "now")>'

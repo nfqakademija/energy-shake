@@ -1,0 +1,21 @@
+AppBundle\Entity\User:
+    user_admin:
+        username: 'Tadas Motužis'
+        name: 'Tadas'
+        surname: 'Motužis'
+        email: 'motuzis.tadas@gmail.com'
+        facebookId (unique): '10208363258317540'
+        password: '<word()>'
+        image: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.200.200/p200x200/10534140_10201464601135422_6820336022947710383_n.jpg?oh=50d3e10a6fcd19f5cc3368693e2aa073&oe=5A9F31E1'
+        roles: '[ROLE_USER,ROLE_ADMIN]'
+        regDate: '<dateTimeBetween("-2 year", "now")>'
+    user{1..100}:
+        username (unique): '<lt_LT:firstName()> <lastName()>'
+        name: '<lt_LT:firstName()>'
+        surname: '<lastName()>'
+        email: '<lt_LT:email()>'
+        facebookId (unique): '<numberBetween(10000000000000000, 10200000000000000)>'
+        password: '<password()>'
+        image: 'https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg'
+        roles: '[ROLE_USER]'
+        regDate: '<dateTimeBetween("-2 year", "now")>'
