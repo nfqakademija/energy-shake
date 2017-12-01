@@ -1,6 +1,6 @@
 //bootstrap
 @import "./node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "./src/AppBundle/Resources/style/easyadmin-all.min.scss";
+
 /*    MAIN    */
 
 html, body{
@@ -352,24 +352,5 @@ textarea {
   height: 80px;
   width: auto;
   border-radius: 50px;
-}
-
-/* tmp admin style fixes */
-
-.main-sidebar{
-  -webkit-transition: none;
-  -o-transition: none;
-  transition: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 50px;
-  min-height: 100%;
-  width: 230px;
-  z-index: 810;
-}
-
-.content-wrapper {
-  margin-left: 235px;
 }
 
