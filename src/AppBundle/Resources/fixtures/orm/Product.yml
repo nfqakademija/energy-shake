@@ -1,0 +1,15 @@
+parameters:
+    images:
+        - 'red.png'
+        - 'orange.png'
+        - 'green.png'
+
+AppBundle\Entity\Product:
+    product{1..100}:
+        title: '<word()>'
+        description: '<sentences(3, true)>'
+        price: '20'
+        image: '<randomElement($images)>'
+        createdAt: '<dateTimeBetween("-2 year", "now")>'
+        updatedAt: '<dateTimeBetween("-2 year", "now")>'
+        parts: ['@part*']
