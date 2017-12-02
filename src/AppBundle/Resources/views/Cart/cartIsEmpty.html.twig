@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Empty - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>{{ 'cart.isemptyyet'|trans }}</h2>
+            <p><a href="{{ path('app.home') }}">{{ 'cart.continue'|trans }}</a></p>
+        </div>
+    </div>
+{% endblock %}

@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -93,6 +94,21 @@ class User implements UserInterface
      * @ORM\Column(name="regDate", type="datetime")
      */
     private $regDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Orders", mappedBy="user")
+     **/
+    private $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->username;
+    }
 
     /**
      * Get id
@@ -315,6 +331,36 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * Add orders
+     *
+     * @param Orders $orders
+     * @return User
+     */
+    public function addOrder(Orders $orders)
+    {
+        $this->orders[] = $orders;
+        return $this;
+    }
+    /**
+     * Remove orders
+     *
+     * @param Orders $orders
+     */
+    public function removeOrder(Orders $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrders()
+    {
+        return $this->orders;
     }
 }
 

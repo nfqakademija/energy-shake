@@ -133,11 +133,18 @@ easy_admin:
                 fields: ['id', 'title', 'description', { property: 'image', type: 'image', base_path: '%app.path.part_images%' }, 'products']
             form:
                 fields: ['title', 'description', { property: 'imageFile', type: 'file' }, 'products']
+        Orders:
+            class: AppBundle\Entity\Orders
+            label: 'admin.orders'
+            list:
+                fields: ['id', 'user', 'sum', 'deliveryDate']
+
     design:
         menu:
             - { entity: 'User', icon: 'users' }
             - { entity: 'Product', icon: 'cube' }
             - { entity: 'Part', icon: 'cubes' }
+            - { entity: 'Orders', icon: 'list' }
         brand_color: '#000'
         assets:
             favicon: '/assets/images/favicon.png'

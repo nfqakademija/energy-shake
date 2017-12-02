@@ -26,8 +26,7 @@ class ProfileType extends AbstractType
             'username',
             TextType::class,
             [
-                'label' => 'user.username',
-                'required' => false
+                'label' => 'user.username'
             ]
         )->add(
             'name',

@@ -12,6 +12,7 @@ admin:
     products: Produktai
     users: Vartotojai
     parts: Sudedamosios dalys
+    orders: Užsakymai
 
 action:
     search: Ieškoti

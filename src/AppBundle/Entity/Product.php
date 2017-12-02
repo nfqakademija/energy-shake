@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\ManyToMany;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Product
@@ -83,12 +84,18 @@ class Product
     private $parts;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\OneToMany(targetEntity="OrderDetails", mappedBy="product")
+     **/
+    private $productOrders;
+
+    /**
+     * @ORM\Column(name="deleted", type="datetime", nullable=true)
      */
     private $deleted;
 
     public function __construct() {
-        $this->parts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parts = new ArrayCollection();
+        $this->productOrders = new ArrayCollection();
     }
 
     public function __toString()
@@ -259,6 +266,36 @@ class Product
         if ($image) {
             $this->updatedAt = new \DateTime('now');
         }
+    }
+
+    /**
+     * Add productOrders
+     *
+     * @param OrderDetails $productOrders
+     * @return Product
+     */
+    public function addProductOrder(OrderDetails $productOrders)
+    {
+        $this->productOrders[] = $productOrders;
+        return $this;
+    }
+    /**
+     * Remove productOrders
+     *
+     * @param OrderDetails $productOrders
+     */
+    public function removeProductOrder(OrderDetails $productOrders)
+    {
+        $this->productOrders->removeElement($productOrders);
+    }
+    /**
+     * Get productOrders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProductOrders()
+    {
+        return $this->productOrders;
     }
 
     /**

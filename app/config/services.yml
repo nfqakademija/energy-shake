@@ -27,6 +27,10 @@ services:
         autoconfigure: true
         public: true
 
+    app.order_service:
+          class:        AppBundle\Service\OrderService
+          arguments:    ["@doctrine.orm.entity_manager"]
+
     AppBundle\:
         resource: '../../src/AppBundle/*'
         exclude: '../../src/AppBundle/{Controller,Entity,Repository,Tests}'

@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="product-{{ product.id }}" role="dialog">
+                <div class="modal fade id-row" id="product-{{ product.id }}" role="dialog" data-id="{{ product.id }}">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -105,18 +105,18 @@
                                 <h4><span class="glyphicon glyphicon-apple"></span> {{ product.title }}</h4>
                             </div>
                             <div class="modal-body">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="psw"></span>{{ 'home.price'|trans }}{{ product.price }}</label>
-                                        <input type="number" min="1" class="form-control" id="psw" placeholder="{{ 'home.how_many'|trans }}">
-                                    </div>
-                                    <button type="submit" class="btn btn-block">{{ 'home.add_to_cart'|trans }}
-                                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                                    </button>
-                                </form>
+                                <div class="form-group">
+                                    <p class="lead price">
+                                        <span>{{ product.price|number_format(2, '.', ',') }} €</span>
+                                    </p>
+                                    <input type="number" min="1" class="form-control addtocart-input"
+                                           placeholder="{{ 'home.how_many'|trans }}"
+                                           value="1">
+                                </div>
+                                <a class="btn addtocart-btn" data-dismiss="modal" href="#">{{ 'home.add_to_cart'|trans }} <span class="glyphicon glyphicon-shopping-cart"></span></a>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                <button type="submit" class="btn pull-left" data-dismiss="modal">
                                     <span class="glyphicon glyphicon-remove"></span> {{ 'home.cancel'|trans }}
                                 </button>
                             </div>
