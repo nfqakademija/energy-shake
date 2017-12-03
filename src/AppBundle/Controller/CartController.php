@@ -106,6 +106,44 @@ class CartController extends Controller
     }
 
     /**
+     * Count cart from cookies
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function navbarCartAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        //quantity -> sum array
+        $cartArray = ['cart' => ['quantity' => 0, 'sum' => 0]];
+        $cookies = $request->cookies->all();
+
+        if (isset($cookies['cart'])) {
+            $cart = json_decode($cookies['cart']);
+            if ($cart == '') {
+                return $cartArray;
+            }
+        } else {
+            return $cartArray;
+        }
+
+        $productRepository = $em->getRepository('AppBundle:Product');
+
+        foreach ($cart as $productId => $productQuantity) {
+            /**
+             * @var Product $product
+             */
+            $product = $productRepository->find((int)$productId);
+            if (is_object($product)) {
+                $cartArray['cart']['sum'] += ($product->getPrice() * abs((int)$productQuantity));
+                $cartArray['cart']['quantity'] += abs((int)$productQuantity);
+            }
+        }
+
+        return $cartArray;
+    }
+
+    /**
      * @param User $user
      * @param Form $form
      * @return void

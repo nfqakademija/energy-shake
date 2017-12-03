@@ -54,7 +54,7 @@ class ProfileType extends AbstractType
             SubmitType::class,
             [
                 'label' => 'action.save',
-                'attr' => ['class' => "btn-success btn pull-right"],
+                'attr' => ['class' => "btn pull-right"],
             ]
         );
     }

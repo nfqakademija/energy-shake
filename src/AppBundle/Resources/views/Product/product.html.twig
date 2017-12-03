@@ -29,7 +29,7 @@
                 </ul>
                 <button class="btn" data-toggle="modal" data-target="#product-{{ product.id }}"><span class="glyphicon glyphicon-shopping-cart"></span></button>
             </div>
-
+            <div>
             <div class="modal fade id-row" id="product-{{ product.id }}" role="dialog" data-id="{{ product.id }}">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -40,7 +40,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <p class="lead price">
-                                    <span>{{ product.price|number_format(2, '.', ',') }} €</span>
+                                    <span>{{ product.price }}</span>€
                                 </p>
                                 <input type="number" min="1" class="form-control addtocart-input"
                                         placeholder="{{ 'home.how_many'|trans }}"
@@ -55,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         <div class="col-md-3"></div>

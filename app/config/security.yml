@@ -37,7 +37,6 @@ security:
 
     #sudelioti kas kam prieinama, eiliskumas is apacios (neprisijungusiam auksciau) ROLE_USER
     access_control:
-        - { path: ^/cart, roles: ROLE_USER }
         - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }
 

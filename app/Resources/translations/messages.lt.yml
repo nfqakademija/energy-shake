@@ -57,5 +57,33 @@ home:
         comment: Žinutė
         send: Siųsti
 
+cart:
+    yourcart: Jūsų krepšelis
+    checkout: Apmokėti
+    clear: Išvalyti
+    isemptyyet: Krešelis dar tuščias
+    continue: Tęskite apsipirkimą
+    table:
+        product: Produktas
+        quantity: Kiekis
+        price: Kaina
+        sum: Suma
+        totalsum: Iš viso
+
+orderform:
+    orderform: Užsakymas
+    name: Vardas
+    email: El. paštas
+    phone: Tel. nr.
+    address: Adresas
+    yourcomment: Komentaras
+    submit: Užsakyti
+    totalsumis: Iš viso suma:
+
+
+thankyou:
+    handleorder: Sėkmingai užsakyta!
+    continue: Tęsti
+
 
 

@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('css/tmp.css') }}"/>
     {% endblock %}
     {% block canonical_meta %}{% endblock %}
 </head>
@@ -26,7 +25,6 @@
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset( 'js/pasleyjs-locale/' ~ app.request.locale ~ '.js' ) }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}
 </body>

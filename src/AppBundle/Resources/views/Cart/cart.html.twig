@@ -3,6 +3,7 @@
 {% block title %}Cart - {{ parent() }}{% endblock %}
 
 {% block body %}
+    <div class="header-margin"></div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             {% if products|length %}
@@ -17,9 +18,9 @@
                         <th>#</th>
                         <th>{{ 'cart.table.product'|trans }}</th>
                         <th>{{ 'cart.table.quantity'|trans }}</th>
-                        <th></th>
                         <th>{{ 'cart.table.price'|trans }}</th>
                         <th style="text-align: right;">{{ 'cart.table.sum'|trans }}</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,17 +55,17 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="col-md-1">
-                                <a href="#" class="btn btn-danger glyphicon glyphicon-remove product-remove"
-                                   data-toggle="confirmation" data-popout="true" data-placement="left">
-                                    <i class="icon-trash icon-white"></i>
-                                </a>
-                            </td>
                             <td class="col-md-1 price">
                                 <span>{{ product.price|number_format(2, '.', ',') }}</span>
                             </td>
                             <td class="col-md-1 sum" style="text-align: right">
                                 {{ product.sum|number_format(2, '.', ',') }}
+                            </td>
+                            <td class="col-md-1">
+                                <a href="#" class="btn glyphicon glyphicon-remove product-remove"
+                                   data-toggle="confirmation" data-popout="true" data-placement="left">
+                                    <i class="icon-trash icon-white"></i>
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -81,11 +82,11 @@
                 <div class="row">
                     <div>
                         <div class="pull-right">
-                            <a href="{{ path('orderform') }}" class="btn btn-success glyphicon glyphicon-ok"
+                            <a href="{{ path('orderform') }}" class="btn glyphicon glyphicon-ok"
                                id="{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}showModal{% endif %}">
                                 {{ 'cart.checkout'|trans }}
                             </a>
-                            <a href="#" class="btn btn-danger glyphicon glyphicon-trash clear-cart"
+                            <a href="#" class="btn glyphicon glyphicon-trash clear-cart"
                                data-toggle="confirmation" data-popout="true" data-placement="left">
                                 {{ 'cart.clear'|trans }}
                             </a>
