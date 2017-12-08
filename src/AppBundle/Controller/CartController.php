@@ -47,7 +47,7 @@ class CartController extends Controller
                 $totalSum += $sum;
                 $productsArray[] = $productPosition;
             }
-        }
+        } //TODO: perkelti i repositorija/servisa
         return ['products' => $productsArray,
             'totalsum' => $totalSum
         ];
