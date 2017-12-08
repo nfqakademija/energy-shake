@@ -7,6 +7,7 @@
  */
 
 namespace AppBundle\Form;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -18,16 +19,9 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\User;
 
-class UserType extends AbstractType {
+class UserType extends AbstractType
+{
     public function buildForm(FormBuilderInterface $builder, array $options){
-
-        /*$listener = function (FormEvent $event){
-          $data = $event->getData();
-          $data->setRegDate(new \DateTime());
-          $event->setData($data); //negera praktika
-        };*/
-
-
         $builder
             ->add('username', TextType::class, array('label' => 'Username'))
             ->add('email', EmailType::class)
@@ -44,11 +38,11 @@ class UserType extends AbstractType {
             ]);
            // ->addEventListener(FormEvents::POST_SET_DATA, $listener);
     }
-    public function configureOptions(OptionsResolver $resolver){
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults([
             'data_class' => User::class
         ]);
-
-        //$resolver->setRequired('translator');
     }
 }

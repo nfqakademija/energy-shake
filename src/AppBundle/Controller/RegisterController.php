@@ -22,10 +22,10 @@ class RegisterController extends Controller
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             // Create the user
             $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
-            $user->setRole("user");
+            $user->setRoles("ROLE_USER");
             $user->setRegDate(new \DateTime("now"));
             $em->persist($user);
             $em->flush();
@@ -35,5 +35,4 @@ class RegisterController extends Controller
             'form' => $form->createView()
         ));
     }
-
 }

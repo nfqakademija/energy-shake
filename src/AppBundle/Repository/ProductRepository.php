@@ -10,7 +10,8 @@ namespace AppBundle\Repository;
  */
 class ProductRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getProductList(){
+    public function getProductList()
+    {
         $queryBuilder = $this->createQueryBuilder('c');
         $queryBuilder->where($queryBuilder->expr()->isNull('c.deleted'));
         $queryBuilder->orderBy('c.id', 'desc');

@@ -12,6 +12,3 @@ class PostPostSubmitListener
 {
     //public function  modifyData
 }
-
-//formoje
-//

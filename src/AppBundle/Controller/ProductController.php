@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ProductController
@@ -44,5 +43,4 @@ class ProductController extends Controller
             'product' => $product
         ));
     }
-
 }

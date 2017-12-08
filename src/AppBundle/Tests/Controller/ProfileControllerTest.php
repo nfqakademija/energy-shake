@@ -9,8 +9,6 @@ class ProfileControllerTest extends WebTestCase
     public function testProfile()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/profile');
     }
-
 }

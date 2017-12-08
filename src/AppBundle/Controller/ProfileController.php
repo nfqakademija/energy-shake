@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\User;
 use AppBundle\Form\ProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -51,7 +50,6 @@ class ProfileController extends Controller
                     'app.profile'
                 );
             }
-
         }
         return $this->render(
             'AppBundle:Profile:profile.html.twig',
@@ -61,5 +59,4 @@ class ProfileController extends Controller
             ]
         );
     }
-
 }

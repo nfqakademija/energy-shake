@@ -97,7 +97,8 @@ class Orders
      **/
     private $orderProducts;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->orderProducts = new ArrayCollection();
     }
 
@@ -214,10 +215,13 @@ class Orders
 
     /**
      * @param float $sum
+     * @return Orders
      */
     public function setSum($sum)
     {
         $this->sum = $sum;
+
+        return $this;
     }
 
     /**
@@ -265,6 +269,8 @@ class Orders
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -282,6 +288,8 @@ class Orders
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
     }
 
     /**
@@ -299,6 +307,8 @@ class Orders
     public function setPhone($phone)
     {
         $this->phone = $phone;
+
+        return $this;
     }
 
     /**
@@ -316,6 +326,8 @@ class Orders
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
     }
 
     /**
@@ -333,6 +345,7 @@ class Orders
     public function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
     }
 }
-

@@ -93,7 +93,8 @@ class Product
      */
     private $deleted;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->parts = new ArrayCollection();
         $this->productOrders = new ArrayCollection();
     }
@@ -314,4 +315,3 @@ class Product
         $this->deleted = $deleted;
     }
 }
-

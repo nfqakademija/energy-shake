@@ -21,11 +21,12 @@ class LoginController extends Controller
             'username' => $lastUserName,
         ));
     }
+
     /**
      * @Route("/logout", name="logout")
      */
-    public function logoutAction(){
+    public function logoutAction()
+    {
 
     }
-
 }

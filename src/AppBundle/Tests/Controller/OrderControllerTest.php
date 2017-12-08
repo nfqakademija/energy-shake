@@ -9,8 +9,6 @@ class OrderControllerTest extends WebTestCase
     public function testOrder()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/order');
     }
-
 }

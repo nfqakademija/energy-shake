@@ -72,7 +72,8 @@ class Part
      */
     private $products;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -222,4 +223,3 @@ class Part
         $this->updatedAt = $updatedAt;
     }
 }
-

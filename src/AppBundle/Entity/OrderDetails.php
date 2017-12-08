@@ -149,6 +149,7 @@ class OrderDetails
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
     }
 }
-

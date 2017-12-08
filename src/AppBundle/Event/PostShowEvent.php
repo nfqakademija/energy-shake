@@ -8,14 +8,9 @@
 
 namespace AppBundle\Event;
 
-
 use Symfony\Component\EventDispatcher\Event;
 
 class PostShowEvent extends Event
 {
     private $price;
-
-    //getter setter constructor
-
-
 }
