@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
+
 /**
  * UserRepository
  *
