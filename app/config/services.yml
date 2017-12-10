@@ -31,6 +31,10 @@ services:
           class:        AppBundle\Service\OrderService
           arguments:    ["@doctrine.orm.entity_manager"]
 
+    app.cart_service:
+              class:        AppBundle\Service\CartService
+              arguments:    ["@doctrine.orm.entity_manager"]
+
     AppBundle\:
         resource: '../../src/AppBundle/*'
         exclude: '../../src/AppBundle/{Controller,Entity,Repository,Tests}'

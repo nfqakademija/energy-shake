@@ -93,6 +93,11 @@ class Product
      */
     private $deleted;
 
+    /**
+     * @ORM\Column(name="published", type="boolean")
+     */
+    private $published;
+
     public function __construct()
     {
         $this->parts = new ArrayCollection();
@@ -313,5 +318,21 @@ class Product
     public function setDeleted($deleted)
     {
         $this->deleted = $deleted;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param mixed $published
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
     }
 }

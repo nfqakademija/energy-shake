@@ -116,7 +116,7 @@ easy_admin:
             show:
                 fields: ['id', 'title', 'price', { property: 'image', type: 'image', base_path: '%app.path.product_images%' }, 'parts']
             form:
-                fields: ['title', 'description', 'price', { property: 'imageFile', type: 'file' }, 'parts']
+                fields: ['title', 'description', 'price', { property: 'imageFile', type: 'file' }, 'parts', 'published']
         User:
             class: AppBundle\Entity\User
             label: 'admin.users'

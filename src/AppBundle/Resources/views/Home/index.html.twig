@@ -7,6 +7,83 @@
 {% endblock %}
 
 {% block body %}
+    <div class="header-margin"></div>
+    <div class="cart-container">
+        <div class="empty" style="display:none">
+            No more twinkies !
+        </div>
+        <ul class="cart" style="left: -210.953px;">
+            {% for product in list %}
+            <li class="product" data-price="{{ product.price }}" data-quantity="0">
+                <div class="product-preview">
+                    <div class="thumbnail tmp">
+                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 200px" class="shake"/>>
+                    </div>
+                    <div class="product-paper">
+                        <div class="product-name">
+                            {{ product.title }}
+                        </div>
+                        <div class="product-price">
+                            {{ product.price|number_format(2, '.', '2') }} €
+                        </div>
+                    </div>
+                </div>
+                <div class="product-quantity">
+                    x0
+                </div>
+                <div class="product-interactions">
+                    <div class="button plus">
+                        +
+                    </div>
+                    <div class="button minus">
+                        -
+                    </div>
+                    <div class="button del"></div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <table class="bill">
+        <tbody><tr class="subtotal">
+            <td class="label">
+                Subtotal :
+            </td>
+            <td class="value">
+                0 €
+            </td>
+        </tr>
+        <tr>
+            <td class="label">
+                Shipping :
+            </td>
+            <td class="value">
+                1.00 €
+            </td>
+        </tr>
+        <tr class="total">
+            <td class="label">
+                Total :
+            </td>
+            <td class="value">
+                0 €
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="actions">
+        <div class="big-button go">
+            Get them !
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="big-button return">
+            Return to shop
+        </div>
+    </div>
 
     <div id="home" class="carousel slide" data-ride="carousel">
 

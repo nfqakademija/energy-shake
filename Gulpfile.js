@@ -46,6 +46,11 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(dir.dist + 'fonts'));
 });
 
-gulp.task('default', ['sass', 'scripts', 'fonts', 'images']);
+gulp.task('watch', function () {
+    gulp.watch(dir.assets + 'style/*.scss', ['sass']);
+    gulp.watch(dir.assets + 'scripts/*', ['scripts']);
+    gulp.watch(dir.assets + 'images/*', ['images']);
+});
 
-//sass watch isideti sass:watch
+gulp.task('default', ['sass', 'scripts', 'fonts', 'images', 'watch']);
+
