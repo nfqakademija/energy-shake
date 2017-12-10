@@ -21,35 +21,11 @@ class CartController extends Controller
      */
     public function cartAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $productRepository = $em->getRepository('AppBundle:Product');
-        $productsArray = [];
-        $cart = [];
-        $totalSum = 0;
-        $cookies = $request->cookies->all();
-        if (isset($cookies['cart'])) {
-            $cart = json_decode($cookies['cart']);
-        }
-        foreach ($cart as $productId => $productQuantity) {
-            /**
-             * @var Product $product
-             */
-            $product = $productRepository->find((int)$productId);
-            if (is_object($product)) {
-                $productPosition = [];
-                $quantity = abs((int)$productQuantity);
-                $price = $product->getPrice();
-                $sum = $price * $quantity;
-                $productPosition['product'] = $product;
-                $productPosition['quantity'] = $quantity;
-                $productPosition['price'] = $price;
-                $productPosition['sum'] = $sum;
-                $totalSum += $sum;
-                $productsArray[] = $productPosition;
-            }
-        } //TODO: perkelti i repositorija/servisa
-        return ['products' => $productsArray,
-            'totalsum' => $totalSum
+        $cart = $this->get('app.cart_service')->getCart($request);
+
+        return [
+            'products' => $cart['products'],
+            'totalsum' => $cart['totalSum']
         ];
     }
 

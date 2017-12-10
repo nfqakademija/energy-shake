@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tmotuzis
- * Date: 17.12.2
- * Time: 22.37
- */
+
 namespace AppBundle\Service;
 
 use Doctrine\ORM\EntityManager;
