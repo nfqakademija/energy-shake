@@ -58,6 +58,7 @@ class CartService
     public function getCartProducts(Request $request)
     {
         $cart = [];
+        $cartArray = [];
         $list = $this->em->getRepository('AppBundle:Product')
             ->getProductList();
         $cookies = $request->cookies->all();
@@ -65,19 +66,31 @@ class CartService
             $cart = json_decode($cookies['cart']);
         }
 
-        /*foreach ($cart as $productId => $productQuantity) {
+        foreach ($cart as $productId => $productQuantity) {
             $cartArray[] = ["productId" => $productId, "productQuantity" => $productQuantity];
-        }*/
-
+        }
         foreach ($list as $product) {
             /**
              * @var Product $product
              */
-            if (is_object($product)) {
-                //TODO: finish formating full product list with cart quantities
+            $inCart = $this->searcharray($product->getId(), 'productId', $cartArray);
+            if ($inCart['productQuantity'] != null ){
+                $product->cartQuantity = $inCart['productQuantity'];
+            } else {
+                $product->cartQuantity = 0;
             }
         }
 
         return $list;
+    }
+
+    private function searcharray($value, $key, $array) {
+
+        foreach ($array as $k => $val) {
+            if ($val[$key] == $value) {
+                return $val;
+            }
+        }
+        return null;
     }
 }
