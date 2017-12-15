@@ -159,7 +159,7 @@ pre{
 .thumbnail > .img-small{
   height: 50px;
   margin: 0;
-  paddinng: 0;
+  padding: 0;
 }
 
 /*    FOOTER    */
@@ -418,7 +418,7 @@ html, body {
 .cart {
   list-style: none;
   height: 280px;
-  width: 10000px;
+  width: 100%;
   cursor: grab;
   position: relative;
   left: 0;
@@ -621,5 +621,12 @@ html, body {
 
 .thumbnail.tmp{
   background: none;
+}
+
+.shopping-cart{
+  position: fixed;
+  right: 0;
+  z-index: 9999999999;
+  top:68px;
 }
 

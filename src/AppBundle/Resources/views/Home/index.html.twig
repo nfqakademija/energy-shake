@@ -8,42 +8,46 @@
 
 {% block body %}
     <div class="header-margin"></div>
-    <div class="cart-container">
-        <div class="empty" style="display:none">
-            No more twinkies !
+    <div class="shopping-cart">
+        <div class="cart-container">
+            <div class="empty" style="display:none">
+                No more twinkies !
+            </div>
+            <ul class="cart mini-cart">
+                {% for cartProduct in cartProducts %}
+                    <li class="product id-row" data-id="{{ cartProduct.product.id }}"
+                        data-price="{{ cartProduct.price }}"
+                        data-quantity="{{ cartProduct.quantity }}">
+                        <div class="product-preview">
+                            <div class="thumbnail tmp">
+                                <img src="{{ vich_uploader_asset(cartProduct.product, 'imageFile') }}" alt="{{ cartProduct.product.title }}" style="height: 180px" class="shake"/>
+                            </div>
+                            <div class="product-paper">
+                                <div class="product-name">
+                                    {{ cartProduct.product.title }}
+                                </div>
+                                <div class="product-price">
+                                    {{ cartProduct.product.price|number_format(2, '.', '2') }} €
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-quantity">
+                            x{{ cartProduct.quantity }}
+                        </div>
+                        <div class="product-interactions">
+                            <div class="button plus">
+                                +
+                            </div>
+                            <div class="button minus">
+                                -
+                            </div>
+                            <div class="button del"></div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-        <ul class="cart" style="left: -210.953px;">
-            {% for product in list %}
-            <li class="product id-row" data-id="{{ product.id }}" data-price="{{ product.price }}" data-quantity="{{ product.properties['cartQuantity'] }}">
-                <div class="product-preview">
-                    <div class="thumbnail tmp">
-                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 200px" class="shake"/>>
-                    </div>
-                    <div class="product-paper">
-                        <div class="product-name">
-                            {{ product.title }}
-                        </div>
-                        <div class="product-price">
-                            {{ product.price|number_format(2, '.', '2') }} €
-                        </div>
-                    </div>
-                </div>
-                <div class="product-quantity">
-                   x{{ product.properties['cartQuantity'] }}
-                </div>
-                <div class="product-interactions">
-                    <div class="button plus">
-                        +
-                    </div>
-                    <div class="button minus">
-                        -
-                    </div>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
     </div>
-
     <table class="bill">
         <tbody><tr class="subtotal">
             <td class="label">
@@ -158,49 +162,43 @@
             <h3 class="text-center text-uppercase">{{ 'home.newest_products'|trans }}</h3>
             <p class="text-center">Lorem ipsum something about products!</p>
             <div class="row text-center">
-                {% for product in list|slice(0, 3) %}
-                <div class="col-sm-4">
-                    <div class="thumbnail">
-                        <a href="{{ path('app.product', {'id': product.id}) }}">
-                            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 200px" class="shake"/>
-                        </a>
-                        <p><strong>{{ product.title }}</strong></p>
-                        <p>{{ product.description }}</p>
-                        <button class="btn" data-toggle="modal" data-target="#product-{{ product.id }}"><span class="glyphicon glyphicon-shopping-cart"></span></button>
-                        <a href="{{ path('app.product', {'id': product.id}) }}" class="btn">
-                            <span class="glyphicon glyphicon-option-horizontal"></span>
-                        </a>
+                <div class="cart-container">
+                    <div class="empty" style="display:none">
+                        No more twinkies !
                     </div>
-                </div>
-                <div>
-                <div class="modal fade id-row" id="product-{{ product.id }}" role="dialog" data-id="{{ product.id }}">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">×</button>
-                                <h4><span class="glyphicon glyphicon-apple"></span> {{ product.title }}</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <p class="lead price">
-                                        <span>{{ product.price }}</span> €
-                                    </p>
-                                    <input type="number" min="1" class="form-control addtocart-input"
-                                           placeholder="{{ 'home.how_many'|trans }}"
-                                           value="1">
+                    <ul class="cart list">
+                        {% for product in list %}
+                            <li class="product id-row" data-id="{{ product.id }}"
+                                data-price="{{ product.price }}"
+                                data-quantity="{{ product.properties['cartQuantity'] }}">
+                                <div class="product-preview">
+                                    <div class="thumbnail tmp">
+                                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 180px" class="shake"/>
+                                    </div>
+                                    <div class="product-paper">
+                                        <div class="product-name">
+                                            {{ product.title }}
+                                        </div>
+                                        <div class="product-price">
+                                            {{ product.price|number_format(2, '.', '2') }} €
+                                        </div>
+                                    </div>
                                 </div>
-                                <a class="btn addtocart-btn" data-dismiss="modal" href="#">{{ 'home.add_to_cart'|trans }} <span class="glyphicon glyphicon-shopping-cart"></span></a>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn pull-left" data-dismiss="modal">
-                                    <span class="glyphicon glyphicon-remove"></span> {{ 'home.cancel'|trans }}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="product-quantity">
+                                    x{{ product.properties['cartQuantity'] }}
+                                </div>
+                                <div class="product-interactions">
+                                    <div class="button plus">
+                                        +
+                                    </div>
+                                    <div class="button minus">
+                                        -
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                </div>
-                {% endfor %}
             </div>
         </div>
     </div>

@@ -23,8 +23,11 @@ class HomeController extends Controller
     public function indexAction(Request $request)
     {
         $list = $this->get('app.cart_service')->getCartProducts($request);
+        $cart = $this->get('app.cart_service')->getCart($request);
         return $this->render('AppBundle:Home:index.html.twig', [
-            'list' => $list
+            'list' => $list,
+            'cartProducts' => $cart['products'],
+            'totalsum' => $cart['totalSum']
         ]);
     }
 }
