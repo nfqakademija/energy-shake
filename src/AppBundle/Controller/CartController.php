@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Orders;
-use AppBundle\Entity\Product;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -89,34 +88,12 @@ class CartController extends Controller
      */
     public function navbarCartAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        //quantity -> sum array
-        $cartArray = ['cart' => ['quantity' => 0, 'sum' => 0]];
-        $cookies = $request->cookies->all();
+        $cart = $this->get('app.cart_service')->getCart($request);
 
-        if (isset($cookies['cart'])) {
-            $cart = json_decode($cookies['cart']);
-            if ($cart == '') {
-                return $cartArray;
-            }
-        } else {
-            return $cartArray;
-        }
-
-        $productRepository = $em->getRepository('AppBundle:Product');
-
-        foreach ($cart as $productId => $productQuantity) {
-            /**
-             * @var Product $product
-             */
-            $product = $productRepository->find((int)$productId);
-            if (is_object($product)) {
-                $cartArray['cart']['sum'] += ($product->getPrice() * abs((int)$productQuantity));
-                $cartArray['cart']['quantity'] += abs((int)$productQuantity);
-            }
-        }
-
-        return $cartArray;
+        return $this->render('AppBundle:Cart:navbarCart.html.twig', [
+            'cartProducts' => $cart['products'],
+            'totalsum' => $cart['totalSum']
+        ]);
     }
 
     /**

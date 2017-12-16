@@ -1,9 +1,4 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}Order - {{ parent() }}{% endblock %}
-
-{% block body %}
-    <div class="header-margin"></div>
+<div class="header-margin"></div>
     <h2 class="text-center">{{ 'orderform.orderform'|trans }}</h2>
     <hr>
     <div class="row">
@@ -64,14 +59,3 @@
             {{ form_start(form) }}
         </div>
     </div>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(function () {
-            //total sum from navbar cart
-            var totalSum = $('#cart-sum').html();
-            $('#totalsum').html(totalSum);
-        });
-    </script>
-{% endblock javascripts %}

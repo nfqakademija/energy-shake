@@ -45,9 +45,19 @@ $(document).ready(function(){
             });
     });*/
 
-    $(document).on("click", ".testz", function() {
+    $(document).on("click", ".cart-product", function() {
         var product = $(this).closest('.product');
         plusProduct(product);
+    });
+
+    $(document).on("click", ".minus", function() {
+        var product = $(this).closest('.product');
+        minusProduct(product);
+    });
+
+    $(document).on("click", ".del", function() {
+        var product = $(this).closest('.product');
+        removeProduct(product);
     });
 
     $('.list').find('.plus').click( function() {
@@ -55,40 +65,12 @@ $(document).ready(function(){
         var productId = product.data('id');
         var element = $('.shopping-cart').find("[data-id='" + productId + "']");
         if (!element.length){
-            $('.mini-cart').append(product.clone()).find(".plus").addClass("testz");
+            $('.mini-cart').append(product.clone()).find(".plus").addClass("cart-product");
         }
-
-
         plusProduct(product);
-       /* var element = $('.shopping-cart').find("[data-id='" + productId + "']");
-        var q = product.data('quantity') + 1;
-        if (element.length == 0){
-            $('.mini-cart').append(product.clone());
-            $('.plus').click( function() {
-                var product = $(this).closest('.product');
-                var productId = product.data('id');
-                var element = $('.shopping-cart').find("[data-id='" + productId + "']");
-                var q = product.data('quantity') + 1;
-                element.data('quantity', q);
-                updateProduct(element);
-            });
-
-        }else{
-            element.data('quantity', q);
-            updateProduct(element);
-        }
-        product.data('quantity', q);
-        updateProduct(product);*/
     });
 
-    $('.minus').click( function() {
-        var product = $(this).closest('.product');
-        var q = Math.max(0, product.data('quantity') - 1);
-        product.data('quantity', q);
-        updateProduct(product);
-    });
-
-    $('.del').click( function() {
+    /*$('.del').click( function() {
         var product = $(this).closest('.product');
         product.hide('blind', {direction:'left'}, 500, function() {
             product.remove();
@@ -98,44 +80,55 @@ $(document).ready(function(){
                 $('.cart-container .empty').show();
             }
         });
-    });
+    });*/
 
 });
 
 function plusProduct(product) {
-
-
-
     var productId = product.data('id');
     var products = $("[data-id='" + productId + "']");
     var q = products.data('quantity') + 1;
     products.data('quantity', q);
     updateProduct(products);
+}
 
+function minusProduct(product) {
+    var productId = product.data('id');
+    var products = $("[data-id='" + productId + "']");
+    var q = products.data('quantity') - 1;
+    if (q < 0) q = 0;
+    products.data('quantity', q);
+    updateProduct(products);
+}
+
+function removeProduct(product) {
+    var productId = product.data('id');
+    var products = $("[data-id='" + productId + "']");
+    products.data('quantity', 0);
+    console.log("remove product ", products.data('quantity'));
+    updateProduct(products);
+    product.remove();
 }
 
 function updateProduct(products) {
     var quantity = products.data('quantity');
-    console.log(quantity);
+    console.log("update product ", products.data('quantity'));
     $('.product-quantity', products).text('x' + quantity);
     updateBill();
 }
 
 function updateBill() {
-    var subtotal = 0;
-    var shipping = 1;
+    var total = 0;
     var cartObj = {};
     var quantity = 0;
     $('.shopping-cart').find('.product').each(function () {
         quantity = $(this).data('quantity');
-        subtotal += quantity * $(this).data('price');
+        total += quantity * $(this).data('price');
         var productId = $(this).data('id');
         if (quantity > 0){
             cartObj[productId] = $(this).data('quantity');
         }
     });
-    total = subtotal + shipping;
-    $('.subtotal .value').text(subtotal.toFixed(2) + ' €');
 
     $('.total .value').text(total.toFixed(2) + ' €');
     Cookies.remove('cart');

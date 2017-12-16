@@ -1,2 +1,71 @@
-<span id="cart-quantity">{{ cart.quantity }}</span> |
-<span id="cart-sum">{{ cart.sum }}</span> <span> </span> €
+<div class="shopping-cart">
+    <div class="cart-container">
+        <div class="empty" style="display:none">
+            No more twinkies !
+        </div>
+        <ul class="cart mini-cart">
+            {% for cartProduct in cartProducts %}
+                <li class="product id-row" data-id="{{ cartProduct.product.id }}"
+                    data-price="{{ cartProduct.price }}"
+                    data-quantity="{{ cartProduct.quantity }}">
+                    <div class="product-preview">
+                        <div class="thumbnail tmp">
+                            <img src="{{ vich_uploader_asset(cartProduct.product, 'imageFile') }}" alt="{{ cartProduct.product.title }}" style="height: 180px" class="shake"/>
+                        </div>
+                        <div class="product-paper">
+                            <div class="product-name">
+                                {{ cartProduct.product.title }}
+                            </div>
+                            <div class="product-price">
+                                {{ cartProduct.product.price|number_format(2, '.', '2') }} €
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-quantity">
+                        x{{ cartProduct.quantity }}
+                    </div>
+                    <div class="product-interactions">
+                        <div class="button plus cart-product">
+                            +
+                        </div>
+                        <div class="button minus">
+                            -
+                        </div>
+                        <div class="button del"></div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="total actions">
+        <span class="label">
+            Total :
+        </span>
+        <span class="value">
+            0 €
+        </span>
+    </div>
+    <div class="actions">
+        <div class="big-button go">
+            Get them !
+        </div>
+    </div>
+    <button class="btn" data-toggle="modal" data-target="#checkout"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+</div>
+<div class="modal fade id-row" id="checkout" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                fdfgdfgdfg
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn pull-left" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> {{ 'home.cancel'|trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
