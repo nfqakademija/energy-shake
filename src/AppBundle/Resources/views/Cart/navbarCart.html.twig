@@ -1,70 +1,170 @@
 <div class="shopping-cart">
-    <div class="cart-container">
-        <div class="empty" style="display:none">
-            No more twinkies !
-        </div>
-        <ul class="cart mini-cart">
-            {% for cartProduct in cartProducts %}
-                <li class="product id-row" data-id="{{ cartProduct.product.id }}"
-                    data-price="{{ cartProduct.price }}"
-                    data-quantity="{{ cartProduct.quantity }}">
-                    <div class="product-preview">
-                        <div class="thumbnail tmp">
-                            <img src="{{ vich_uploader_asset(cartProduct.product, 'imageFile') }}" alt="{{ cartProduct.product.title }}" style="height: 180px" class="shake"/>
-                        </div>
-                        <div class="product-paper">
-                            <div class="product-name">
-                                {{ cartProduct.product.title }}
+    <div class="toggle-cart">
+        <span class="show-cart glyphicon glyphicon-minus"></span>
+    </div>
+    <div class="show-hide">
+        <div class="cart-container">
+            <ul class="cart mini-cart">
+                {% for cartProduct in cartProducts %}
+                    <li class="product id-row" data-id="{{ cartProduct.product.id }}"
+                        data-price="{{ cartProduct.price }}"
+                        data-quantity="{{ cartProduct.quantity }}">
+                        <div class="product-preview">
+                            <div class="thumbnail tmp">
+                                <img src="{{ vich_uploader_asset(cartProduct.product, 'imageFile') }}" alt="{{ cartProduct.product.title }}" class="shake"/>
                             </div>
-                            <div class="product-price">
-                                {{ cartProduct.product.price|number_format(2, '.', '2') }} €
+                            <div class="product-paper">
+                                <div class="product-name">
+                                    {{ cartProduct.product.title }}
+                                </div>
+                                <div class="product-price">
+                                    {{ cartProduct.product.price|number_format(2, '.', '2') }} €
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-quantity">
-                        x{{ cartProduct.quantity }}
-                    </div>
-                    <div class="product-interactions">
-                        <div class="button plus cart-product">
-                            +
+                        <div class="product-quantity">
+                            x{{ cartProduct.quantity }}
                         </div>
-                        <div class="button minus">
-                            -
+                        <div class="product-interactions">
+                            <div class="button plus cart-product">
+                                +
+                            </div>
+                            <div class="button minus">
+                                -
+                            </div>
+                            <div class="button del"></div>
                         </div>
-                        <div class="button del"></div>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="total actions">
-        <span class="label">
-            Total :
-        </span>
-        <span class="value">
-            0 €
-        </span>
-    </div>
-    <div class="actions">
-        <div class="big-button go">
-            Get them !
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="total actions">
+            <span class="label">
+                Viso:
+            </span>
+            <span class="value">
+                0 €
+            </span>
+        </div>
+        <div class="actions checkout">
+            <a data-toggle="modal" href="#checkout">
+            <div class="big-button go">
+              Perku!
+            </div>
+            </a>
         </div>
     </div>
-    <button class="btn" data-toggle="modal" data-target="#checkout"><span class="glyphicon glyphicon-shopping-cart"></span></button>
 </div>
-<div class="modal fade id-row" id="checkout" role="dialog" >
-    <div class="modal-dialog">
+<!-- Modal -->
+<div class="modal fade" id="checkout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                fdfgdfgdfg
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ 'cart.pleasereg'|trans }}</h4>
             </div>
             <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <ul class="cart mini-cart">
+                                {% for cartProduct in cartProducts %}
+                                    <li class="product id-row" data-id="{{ cartProduct.product.id }}"
+                                        data-price="{{ cartProduct.price }}"
+                                        data-quantity="{{ cartProduct.quantity }}">
+                                        <div class="product-preview">
+                                            <div class="thumbnail tmp">
+                                                <img src="{{ vich_uploader_asset(cartProduct.product, 'imageFile') }}" alt="{{ cartProduct.product.title }}" class="shake"/>
+                                            </div>
+                                            <div class="product-paper">
+                                                <div class="product-name">
+                                                    {{ cartProduct.product.title }}
+                                                </div>
+                                                <div class="product-price">
+                                                    {{ cartProduct.product.price|number_format(2, '.', '2') }} €
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-quantity">
+                                            x{{ cartProduct.quantity }}
+                                        </div>
+                                        <div class="product-interactions">
+                                            <div class="button plus cart-product">
+                                                +
+                                            </div>
+                                            <div class="button minus">
+                                                -
+                                            </div>
+                                            <div class="button del"></div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="total actions">
+                        <span class="label">{{ 'orderform.totalsumis'|trans }} </span>
+                        <span class="value">0.00 €</span>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                {{ form_label(form.name, 'orderform.name'|trans) }}
+                            </div>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.name) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                {{ form_label(form.email, 'orderform.email'|trans) }}
+                            </div>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.email) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                {{ form_label(form.phone, 'orderform.phone'|trans) }}
+                            </div>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.phone) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                {{ form_label(form.address, 'orderform.address'|trans) }}
+                            </div>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.address) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                {{ form_label(form.comment, 'orderform.yourcomment'|trans) }}
+                            </div>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.comment) }}
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
 
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 text-right">
+                                <button type="submit" class="btn">{{ 'orderform.submit'|trans }}</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn pull-left" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove"></span> {{ 'home.cancel'|trans }}
-                </button>
+
             </div>
         </div>
     </div>

@@ -35,14 +35,6 @@ class ProfileController extends Controller
             try {
                 $this->getDoctrine()->getManager()->persist($user);
                 $this->getDoctrine()->getManager()->flush();
-                $this->addFlash(
-                    'success',
-                    $this->get('translator')->trans(
-                        'message.concierge.success_event_updated',
-                        ['%username%' => $user->getUsername()],
-                        'user'
-                    )
-                );
             } catch (\Exception $exception) {
                 $this->addFlash('danger', $exception->getMessage());
 

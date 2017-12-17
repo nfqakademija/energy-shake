@@ -49,6 +49,20 @@ class ProfileType extends AbstractType
                 'label' => 'user.email',
             ]
         )->add(
+            'phone',
+            TextType::class,
+            [
+                'label' => 'user.phone',
+                'required' => false
+            ]
+        )->add(
+            'address',
+            TextType::class,
+            [
+                'label' => 'user.address',
+                'required' => false
+            ]
+        )->add(
             'save',
             SubmitType::class,
             [

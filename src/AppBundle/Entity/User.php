@@ -100,6 +100,16 @@ class User implements UserInterface
      **/
     private $orders;
 
+    /**
+     * @ORM\Column(name="phone", type="string", nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(name="address", type="string", nullable=true)
+     */
+    private $address;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -361,5 +371,37 @@ class User implements UserInterface
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
     }
 }

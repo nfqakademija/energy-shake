@@ -48,13 +48,6 @@ class CartController extends Controller
                 return $this->redirect($this->generateUrl('cartisempty')); //check valid cart
             }
 
-            //send email notification
-            /*$this->get('app.email_notifier')->handleNotification([
-                'event' => 'new_order',
-                'order_id' => $order->getId(),
-                'admin_email' => $this->getParameter('admin_email')
-            ]);*/
-
             return $this->render('AppBundle:Cart:thanks.html.twig'); //redirect to thankyou page
         }
 
@@ -62,9 +55,13 @@ class CartController extends Controller
             $this->fillWithUserData($user, $form);
         }
 
+        $cart = $this->get('app.cart_service')->getCart($request);
+
         return [
             'order' => $order,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'cartProducts' => $cart['products'],
+            'totalSum' => $cart["totalSum"]
         ];
     }
 
@@ -83,16 +80,35 @@ class CartController extends Controller
     /**
      * Count cart from cookies
      *
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      * @Template()
      */
     public function navbarCartAction(Request $request)
     {
+
+        $order = new Orders();
+        $form = $this->createForm('AppBundle\Form\OrderType', $order);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $orderSuccess = $this->get('app.order_service')->createOrderDBRecord($request, $order, $this->getUser());
+
+            if (!$orderSuccess) {
+                return $this->redirect($this->generateUrl('cartisempty')); //check valid cart
+            }
+
+            return $this->render('AppBundle:Cart:thanks.html.twig'); //redirect to thankyou page
+        }
+
+        if (is_object($user = $this->getUser())) {
+            $this->fillWithUserData($user, $form);
+        }
         $cart = $this->get('app.cart_service')->getCart($request);
 
         return $this->render('AppBundle:Cart:navbarCart.html.twig', [
+            'order' => $order,
+            'form' => $form->createView(),
             'cartProducts' => $cart['products'],
-            'totalsum' => $cart['totalSum']
+            'totalSum' => $cart['totalSum']
         ]);
     }
 
@@ -105,7 +121,7 @@ class CartController extends Controller
     {
         $form->get('name')->setData($user->getName() . ' ' . $user->getSurname());
         $form->get('email')->setData($user->getEmail());
-        //$form->get('phone')->setData($user->getPhone());
-        //$form->get('address')->setData($user->getAddress());
+        $form->get('phone')->setData($user->getPhone());
+        $form->get('address')->setData($user->getAddress());
     }
 }

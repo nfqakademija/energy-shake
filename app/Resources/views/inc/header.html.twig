@@ -70,6 +70,6 @@
         </div>
     </div>
 </nav>
-{{ render(controller('AppBundle:Cart:navbarCart')) }}
+{{ render(controller('AppBundle:Cart:navbarCart', {'request':app.request})) }}
 
 

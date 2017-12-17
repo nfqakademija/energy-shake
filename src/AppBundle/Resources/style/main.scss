@@ -385,6 +385,7 @@ html, body {
   color: #523118;
   width: 100%;
   height: 100%;
+  padding-right: 0 !important;
 }
 
 .header {
@@ -419,10 +420,6 @@ html, body {
   list-style: none;
   height: 280px;
   width: 100%;
-  cursor: grab;
-  position: relative;
-  left: 0;
-  transform: translate3d(0, 0, 0);
 }
 .cart .product {
   position: relative;
@@ -626,7 +623,132 @@ html, body {
 .shopping-cart{
   position: fixed;
   right: 0;
-  z-index: 9999999999;
-  top:68px;
+  height: 100%;
+  z-index: 2;
+  top: 68px;
+  overflow: auto;
+  max-height: 98%;
+
+  .toggle-cart{
+    right: 0;
+    width: 120px;
+    text-align: center;
+
+    .show-cart{
+      font-size: 1.5em;
+      width: 100%;
+      line-height: 2em;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      cursor: pointer;
+      margin-top: -5px;
+      background-color: #636363;
+      opacity: 0.9;
+      color: #fff;
+    }
+  }
+
+  .show-hide{
+    margin-top: 1em;
+  }
+
+  .cart-container{
+    width: 120px;
+    height: 150px;
+
+    .cart{
+      height: 150px;
+      padding: 0;
+      margin: 0;
+
+      .product{
+        height: 150px;
+        width: 120px;
+
+        .product-preview{
+          padding: 0.5em;
+          height: 150px;
+          border-radius: 30%;
+
+          .product-paper{
+            height: 50px;
+            padding: 0.2em;
+            background: none;
+            margin-left: -0.5em;
+
+            .product-name{
+              font-size: 1em;
+            }
+          }
+
+          .thumbnail{
+            img{
+              height: 90px;
+            }
+          }
+        }
+
+        .product-quantity{
+          width: 1.5em;
+          height: 1.5em;
+          padding: 0.2em 0;
+          top: 0.5em;
+          right: 0.2em;
+        }
+
+        .product-interactions{
+          bottom: 50px;
+          height: 30px;
+
+          .button{
+            height:30px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .total{
+    background: #dda0a0;
+  }
+
+  .actions{
+    height: 80px;
+    border-radius: 40%;
+
+    .label{
+      display: block;
+      font-size: 150%;
+      padding: .5em .6em .3em;
+      color: #523118;
+    }
+
+    .value{
+      padding: 0.3em;
+      font-size: 160%;
+    }
+  }
+
+  .checkout{
+    height: 150px;
+    .big-button.go{
+      border-radius: 30%;
+      padding: 0.675em;
+    }
+  }
+}
+
+.product-preview{
+  .thumbnail{
+    img{
+      height: 150px;
+    }
+  }
+}
+
+html, body {
+  font: 16px "Mouse Memoirs";
 }
 

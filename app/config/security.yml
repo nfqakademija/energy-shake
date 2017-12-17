@@ -34,6 +34,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                use_referer: true
 
     #sudelioti kas kam prieinama, eiliskumas is apacios (neprisijungusiam auksciau) ROLE_USER
     access_control:

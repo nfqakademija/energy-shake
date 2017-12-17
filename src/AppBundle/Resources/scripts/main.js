@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     updateBill();
+    showCart();
 
     $('[data-toggle="tooltip"]').tooltip();
     $(".navbar a, footer a[href='#home']").on('click', function(event) {
@@ -30,6 +31,11 @@ $(document).ready(function(){
         if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) {
             $('.dropdown-menu').hide();
         }
+    });
+
+    $('.show-cart').click(function(){
+        $(document).find('.show-hide').slideToggle('800');
+        $(this).toggleClass('glyphicon-minus glyphicon-shopping-cart')
     });
 
     /*$('.cart-container').on('mousemove', function(evt) {
@@ -90,6 +96,7 @@ function plusProduct(product) {
     var q = products.data('quantity') + 1;
     products.data('quantity', q);
     updateProduct(products);
+    toggleCart();
 }
 
 function minusProduct(product) {
@@ -99,22 +106,38 @@ function minusProduct(product) {
     if (q < 0) q = 0;
     products.data('quantity', q);
     updateProduct(products);
+    toggleCart();
 }
 
 function removeProduct(product) {
     var productId = product.data('id');
     var products = $("[data-id='" + productId + "']");
     products.data('quantity', 0);
-    console.log("remove product ", products.data('quantity'));
     updateProduct(products);
     product.remove();
+    showCart();
 }
 
 function updateProduct(products) {
     var quantity = products.data('quantity');
-    console.log("update product ", products.data('quantity'));
     $('.product-quantity', products).text('x' + quantity);
     updateBill();
+}
+
+function toggleCart() {
+    var hide = $('.shopping-cart').find(".glyphicon-shopping-cart");
+    if (hide.length){
+        $(document).find('.show-hide').slideToggle('800');
+        hide.toggleClass('glyphicon-shopping-cart glyphicon-minus')
+    }
+}
+
+function showCart() {
+    var cartElement = $('.shopping-cart').find(".product");
+    if (!cartElement.length) {
+        $(document).find('.show-hide').slideToggle('800');
+        hide.toggleClass('glyphicon-minus glyphicon-shopping-cart')
+    }
 }
 
 function updateBill() {

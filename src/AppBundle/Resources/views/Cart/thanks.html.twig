@@ -1,17 +1,18 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}Thanks - {{ parent() }}{% endblock %}
-
-{% block body %}
-    <div class="header-margin"></div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <h2>{{ 'thankyou.handleorder'|trans }}</h2>
-            <p>
+<div class="modal show" id="authSuggest" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>{{ 'thankyou.handleorder'|trans }}</h2>
+            </div>
+            <div class="modal-body">
                 <a href="{{ path('app.home') }}">
                     {{ 'thankyou.continue'|trans }}
                 </a>
-            </p>
+            </div>
+            <div class="modal-footer">
+
+            </div>
         </div>
     </div>
-{% endblock %}
+</div>
+

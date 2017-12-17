@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block body %}
-    <div class="header-margin"></div>
     <div id="home" class="carousel slide" data-ride="carousel">
 
         <ol class="carousel-indicators">
@@ -93,7 +92,7 @@
                                 data-quantity="{{ product.properties['cartQuantity'] }}">
                                 <div class="product-preview">
                                     <div class="thumbnail tmp">
-                                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" style="height: 180px" class="shake"/>
+                                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.title }}" class="shake"/>
                                     </div>
                                     <div class="product-paper">
                                         <div class="product-name">
