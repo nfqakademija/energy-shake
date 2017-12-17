@@ -74,7 +74,7 @@ class CartService
              * @var Product $product
              */
             $inCart = $this->searcharray($product->getId(), 'productId', $cartArray);
-            if ($inCart['productQuantity'] != null ){
+            if ($inCart['productQuantity'] != null) {
                 $product->cartQuantity = $inCart['productQuantity'];
             } else {
                 $product->cartQuantity = 0;
@@ -84,8 +84,8 @@ class CartService
         return $list;
     }
 
-    private function searcharray($value, $key, $array) {
-
+    private function searcharray($value, $key, $array)
+    {
         foreach ($array as $k => $val) {
             if ($val[$key] == $value) {
                 return $val;

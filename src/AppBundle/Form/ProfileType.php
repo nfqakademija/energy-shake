@@ -33,7 +33,6 @@ class ProfileType extends AbstractType
             [
                 'label' => 'user.name',
                 'required' => false
-
             ]
         )->add(
             'surname',

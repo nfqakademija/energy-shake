@@ -21,25 +21,25 @@ class OrderType extends AbstractType
             ->add('name', TextType::class,
                 [
                     'label' => 'orderform.name'
-                ])
-            ->add('email', EmailType::class,
+                ]
+            )->add('email', EmailType::class,
                 [
                     'label' => 'orderform.email'
-                ])
-            ->add('phone', TextType::class,
+                ]
+            )->add('phone', TextType::class,
                 [
                     'label' => 'orderform.phone'
-                ])
-            ->add('address', TextType::class,
+                ]
+            )->add('address', TextType::class,
                 [
                     'label' => 'orderform.address'
-                ])
-            ->add('comment', TextareaType::class,
+                ]
+            )->add('comment', TextareaType::class,
                 [
                     'required' => false,
                     'label' => 'orderform.yourcomment'
-                ])
-        ;
+                ]
+            );
     }
 
     /**
