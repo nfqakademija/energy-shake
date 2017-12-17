@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb40963-7f55-4ec5-ba99-c5cca5c2d6c6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/DoctrineMigrations/Version20171217091201.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/inc/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/inc/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/CartController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/CartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/ProfileType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ProfileType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/scripts/main.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/scripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/style/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/navbarCart.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/navbarCart.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/orderForm.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/orderForm.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/thanks.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Cart/thanks.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Home/index.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -587,7 +575,7 @@
       <workItem from="1513433668725" duration="2258000" />
       <workItem from="1513493499200" duration="3962000" />
       <workItem from="1513497974173" duration="1363000" />
-      <workItem from="1513499602261" duration="18460000" />
+      <workItem from="1513499602261" duration="18543000" />
     </task>
     <task id="LOCAL-00001" summary="Facebook Login added">
       <created>1509211859240</created>
@@ -890,11 +878,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513426175211</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Cart scrip/design fixes">
+      <created>1513528987699</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1513528987699</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412531000" />
+    <option name="totallyTimeSpent" value="412614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
