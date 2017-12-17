@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tmotuzis
- * Date: 17.12.2
- * Time: 22.15
- */
 
 namespace AppBundle\Form;
 
@@ -24,11 +18,27 @@ class OrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('phone', TextType::class)
-            ->add('address', TextType::class)
-            ->add('comment', TextareaType::class, ['required' => false])
+            ->add('name', TextType::class,
+                [
+                    'label' => 'orderform.name'
+                ])
+            ->add('email', EmailType::class,
+                [
+                    'label' => 'orderform.email'
+                ])
+            ->add('phone', TextType::class,
+                [
+                    'label' => 'orderform.phone'
+                ])
+            ->add('address', TextType::class,
+                [
+                    'label' => 'orderform.address'
+                ])
+            ->add('comment', TextareaType::class,
+                [
+                    'required' => false,
+                    'label' => 'orderform.yourcomment'
+                ])
         ;
     }
 

@@ -1,26 +1,3 @@
-{#<header>
-    <div class="main-menu">
-        <div class="center-menu">
-            <a href="{{ path('app.home') }}">{{ 'menu.home'|trans }}</a>
-            <a href="{{ path('app.product_list') }}">{{ 'menu.product'|trans }}</a>
-            <a href="{{ path('app.about') }}">{{ 'menu.about'|trans }}</a>
-        </div>
-        <div class="user-menu">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {% if app.user.image %}
-                    <img src="{{ app.user.image }}" class="profile-image">
-                {% endif %}
-                <a href="{{ path('app.profile') }}">{{ app.user.username }}</a>
-                <a href="{{ path('app.cart') }}">{{ 'menu.cart'|trans }}</a>
-                <a href="{{ logout_path() }}">{{ 'menu.logout'|trans }}</a>
-            {% else %}
-                <a href="{{ path('app_facebook_connect') }}"> {{ 'menu.login'|trans }} </a>
-            {% endif %}
-
-        </div>
-    </div>
-</header>#}
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -55,7 +32,6 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('app.profile') }}">{{ 'menu.profile'|trans }}</a></li>
-                            <li><a href="{{ path('app.cart') }}">{{ 'menu.cart'|trans }}</a></li>
                             <li><a href="{{ logout_path() }}">{{ 'menu.logout'|trans }}</a></li>
                         </ul>
                     </li>

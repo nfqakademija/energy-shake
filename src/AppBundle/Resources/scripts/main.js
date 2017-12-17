@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    updateBill();
     showCart();
+    updateBill();
 
     $('[data-toggle="tooltip"]').tooltip();
     $(".navbar a, footer a[href='#home']").on('click', function(event) {
@@ -136,7 +136,7 @@ function showCart() {
     var cartElement = $('.shopping-cart').find(".product");
     if (!cartElement.length) {
         $(document).find('.show-hide').slideToggle('800');
-        hide.toggleClass('glyphicon-minus glyphicon-shopping-cart')
+        $(".glyphicon-minus").toggleClass('glyphicon-shopping-cart glyphicon-minus')
     }
 }
 
